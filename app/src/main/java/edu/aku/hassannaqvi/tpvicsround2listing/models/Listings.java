@@ -75,6 +75,7 @@ public class Listings extends BaseObservable {
     private String hh13a = StringUtils.EMPTY;
     private String hh14 = StringUtils.EMPTY;
     private String hh14a = StringUtils.EMPTY;
+    private String hh13cname = StringUtils.EMPTY;
     private String hh15 = StringUtils.EMPTY;
 
     private String sA = StringUtils.EMPTY;
@@ -250,6 +251,19 @@ public class Listings extends BaseObservable {
         notifyPropertyChanged(BR.hh14);
     }
 
+
+    @Bindable
+    public String getHh13cname() {
+        return hh13cname;
+    }
+
+    public void setHh13cname(String hh13cname) {
+        this.hh13cname = hh13cname;
+        setHh13cname(hh13cname.equals("1") ? this.hh13cname : "");
+        notifyPropertyChanged(BR.hh13cname);
+    }
+
+
     @Bindable
     public String getHh15() {
         return hh15;
@@ -385,7 +399,6 @@ public class Listings extends BaseObservable {
             notifyPropertyChanged(BR.hh19);
         }
     */
-
 
 
     public String getProjectName() {
@@ -564,7 +577,6 @@ public class Listings extends BaseObservable {
     public void setsC(String sC) {
         this.sC = sC;
     }
-
 
 
     public Listings Hydrate(Cursor cursor) throws JSONException {

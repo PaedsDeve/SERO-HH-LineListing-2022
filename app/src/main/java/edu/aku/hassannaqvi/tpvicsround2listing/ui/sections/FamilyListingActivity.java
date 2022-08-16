@@ -51,6 +51,7 @@ public class FamilyListingActivity extends AppCompatActivity {
         listings.setHh13a("");
         listings.setHh14("");
         listings.setHh14a("");
+        listings.setHh13cname("");
         listings.setHh15("");
         bi.btnEnd.setVisibility(MainApp.hhid == 1 ? View.GONE : View.VISIBLE);
 
