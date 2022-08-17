@@ -231,7 +231,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Put all JSON as xxtoString()
         values.put(ListingsTable.COLUMN_SA, ls.sAtoString());
         values.put(ListingsTable.COLUMN_SB, ls.sBtoString());
-        values.put(ListingsTable.COLUMN_SC, ls.getHh13cname());
+        values.put(ListingsTable.COLUMN_SC, ls.sCtoString());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;

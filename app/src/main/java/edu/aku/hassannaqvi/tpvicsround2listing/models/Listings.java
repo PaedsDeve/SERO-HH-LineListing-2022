@@ -646,6 +646,7 @@ public class Listings extends BaseObservable {
             this.hh13a = json.getString("hh13a");
             this.hh14 = json.getString("hh14");
             this.hh14a = json.getString("hh14a");
+            this.hh13cname = json.getString("hh13cname");
             this.hh15 = json.getString("hh15");
 
 
@@ -701,6 +702,7 @@ public class Listings extends BaseObservable {
                 .put("hh13a", hh13a)
                 .put("hh14", hh14)
                 .put("hh14a", hh14a)
+                .put("hh13cname", hh13cname)
                 .put("hh15", hh15);
         return json.toString();
     }
