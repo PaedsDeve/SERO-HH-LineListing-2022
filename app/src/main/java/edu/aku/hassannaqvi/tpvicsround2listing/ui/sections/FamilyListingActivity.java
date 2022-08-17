@@ -54,6 +54,13 @@ public class FamilyListingActivity extends AppCompatActivity {
                 bi.hh1301.setChecked(listings.getHh13() == "1" ? true : false);
                 bi.hh1302.setChecked(listings.getHh13() == "2" ? true : false);
 
+                bi.hh13a.setText(listings.getHh13a());
+
+                bi.hh1401.setChecked(listings.getHh14() == "1" ? true : false);
+                bi.hh1402.setChecked(listings.getHh14() == "2" ? true : false);
+
+                bi.hh14a.setText(listings.getHh14a());
+
             } else {
                 listings.setHh05(String.valueOf(MainApp.hhid));
                 listings.setHh11("");
