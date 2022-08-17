@@ -44,16 +44,26 @@ public class FamilyListingActivity extends AppCompatActivity {
 
         MainApp.hhid++;
         MainApp.mwraCount = 0;
-        listings.setHh05(String.valueOf(MainApp.hhid));
-        listings.setHh11("");
-        listings.setHh12("");
-        listings.setHh13("");
-        listings.setHh13a("");
-        listings.setHh14("");
-        listings.setHh14a("");
-        listings.setHh13cname("");
-        listings.setHh15("");
-        bi.btnEnd.setVisibility(MainApp.hhid == 1 ? View.GONE : View.VISIBLE);
+
+        if (MainApp.num_chlid_12_23 < Integer.parseInt(listings.getHh14a())) {
+            bi.hh11.setText(listings.getHh11());
+            bi.hh12.setText(listings.getHh12());
+
+            bi.hh1301.setChecked(listings.getHh13() == "1" ? true : false);
+            bi.hh1302.setChecked(listings.getHh13() == "2" ? true : false);
+
+        } else {
+            listings.setHh05(String.valueOf(MainApp.hhid));
+            listings.setHh11("");
+            listings.setHh12("");
+            listings.setHh13("");
+            listings.setHh13a("");
+            listings.setHh14("");
+            listings.setHh14a("");
+            listings.setHh15("");
+            bi.btnEnd.setVisibility(MainApp.hhid == 1 ? View.GONE : View.VISIBLE);
+        }
+
 
         if (MainApp.hhid >= Integer.parseInt(MainApp.listings.getHh10())) {
             bi.fldGrpCVhh15.setVisibility(View.VISIBLE);
@@ -67,7 +77,7 @@ public class FamilyListingActivity extends AppCompatActivity {
                 appendingChar = "B";
         }*/
 
-        bi.hhid.setText("TPV-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
+        bi.hhid.setText("SERO22-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
         Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
 
         bi.hh1301.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -172,8 +182,14 @@ public class FamilyListingActivity extends AppCompatActivity {
     }
 
 
+    public void btnAddChild(View view) {
+        startActivity(new Intent(this, ChildActivity.class));
+    }
+
+
     public void btnContinue(View view) {
         if (!formValidation()) return;
+
         //saveDraft();
         if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
             finish();

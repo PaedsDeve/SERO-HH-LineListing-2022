@@ -58,6 +58,29 @@ object CreateTable {
             + " );"
             )
 
+
+    const val SQL_CREATE_CHILD = ("CREATE TABLE "
+            + ChlidTable.TABLE_NAME + "("
+            + ChlidTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + ChlidTable.COLUMN_PROJECT_NAME + " TEXT,"
+            + ChlidTable.COLUMN_UID + " TEXT,"
+            + ChlidTable.COLUMN_UUID + " TEXT,"
+            + ChlidTable.COLUMN_USERNAME + " TEXT,"
+            + ChlidTable.COLUMN_SYSDATE + " TEXT,"
+            + ChlidTable.COLUMN_START_TIME + " TEXT,"
+            + ChlidTable.COLUMN_END_TIME + " TEXT,"
+            + ChlidTable.COLUMN_ISTATUS + " TEXT,"
+            + ChlidTable.COLUMN_DEVICEID + " TEXT,"
+            + ChlidTable.COLUMN_DEVICETAGID + " TEXT,"
+            + ChlidTable.COLUMN_SYNCED + " TEXT,"
+            + ChlidTable.COLUMN_SYNCED_DATE + " TEXT,"
+            + ChlidTable.COLUMN_APPVERSION + " TEXT,"
+            + ChlidTable.COLUMN_SCHILD + " TEXT"
+
+            + " );"
+            )
+
+
     const val SQL_CREATE_USERS = ("CREATE TABLE "
             + UsersTable.TABLE_NAME + "("
             + UsersTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"

@@ -111,6 +111,17 @@ public class Listings extends BaseObservable {
 
 
     @Bindable
+    public String getHh13cname() {
+        return hh13cname;
+    }
+
+    public void setHh13cname(String hh13cname) {
+        this.hh13cname = hh13cname;
+        notifyPropertyChanged(BR.hh13cname);
+    }
+
+
+    @Bindable
     public String getHh01() {
         return hh01;
     }
@@ -248,20 +259,7 @@ public class Listings extends BaseObservable {
     public void setHh14(String hh14) {
         this.hh14 = hh14;
         setHh14a(hh14.equals("1") ? this.hh14a : "");
-        setHh13cname(hh14.equals("1") ? this.hh13cname : "");
         notifyPropertyChanged(BR.hh14);
-    }
-
-
-    @Bindable
-    public String getHh13cname() {
-        return hh13cname;
-    }
-
-    public void setHh13cname(String hh13cname) {
-        this.hh13cname = hh13cname;
-        //setHh13cname(hh13cname.equals("1") ? this.hh13cname : "");
-        notifyPropertyChanged(BR.hh13cname);
     }
 
 
@@ -648,12 +646,22 @@ public class Listings extends BaseObservable {
             this.hh13a = json.getString("hh13a");
             this.hh14 = json.getString("hh14");
             this.hh14a = json.getString("hh14a");
-            this.hh13cname = json.has("hh13cname") ? json.getString("hh13cname") : "";
             this.hh15 = json.getString("hh15");
 
 
         }
     }
+
+
+    public void sChildHydrate(String string) throws JSONException {
+        Log.d(TAG, "sCHydrate: " + string);
+        if (string != null) {
+            JSONObject json = null;
+            json = new JSONObject(string);
+            this.hh13cname = json.getString("hh13cname");
+        }
+    }
+
 
     public String sAtoString() throws JSONException {
         Log.d(TAG, "cRtoString: ");
@@ -693,7 +701,6 @@ public class Listings extends BaseObservable {
                 .put("hh13a", hh13a)
                 .put("hh14", hh14)
                 .put("hh14a", hh14a)
-                .put("hh13cname", hh13cname)
                 .put("hh15", hh15);
         return json.toString();
     }

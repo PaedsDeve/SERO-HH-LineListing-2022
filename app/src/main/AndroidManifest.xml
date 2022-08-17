@@ -36,6 +36,9 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".ui.sections.ChildActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait"

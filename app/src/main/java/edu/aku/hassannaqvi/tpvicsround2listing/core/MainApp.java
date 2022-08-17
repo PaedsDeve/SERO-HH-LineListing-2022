@@ -36,6 +36,7 @@ import java.util.List;
 
 import edu.aku.hassannaqvi.tpvicsround2listing.BuildConfig;
 import edu.aku.hassannaqvi.tpvicsround2listing.R;
+import edu.aku.hassannaqvi.tpvicsround2listing.models.Child;
 import edu.aku.hassannaqvi.tpvicsround2listing.models.Cluster;
 import edu.aku.hassannaqvi.tpvicsround2listing.models.Listings;
 import edu.aku.hassannaqvi.tpvicsround2listing.models.Mwra;
@@ -44,7 +45,7 @@ import edu.aku.hassannaqvi.tpvicsround2listing.models.Users;
 
 public class MainApp extends Application {
 
-    public static final String PROJECT_NAME = "tpvicsround2listing";
+    public static final String PROJECT_NAME = "sero22listing";
     public static final String DIST_ID = null;
     public static final String SYNC_LOGIN = "sync_login";
     public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
@@ -71,6 +72,7 @@ public class MainApp extends Application {
     // Tables
     public static Listings listings;
     public static Mwra mwra;
+    public static Child child;
     public static String DeviceURL = "devices.php";
     public static AppInfo appInfo;
     public static Users user;
@@ -89,6 +91,7 @@ public class MainApp extends Application {
     public static boolean childComplete;
     public static boolean pregComplete;
     public static int mwraCount = 0;
+    public static int num_chlid_12_23 = 0;
     public static int childCount = 0;
     public static int pregCount = 0;
     public static String selectedFemale = "";
