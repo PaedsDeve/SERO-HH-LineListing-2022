@@ -45,23 +45,27 @@ public class FamilyListingActivity extends AppCompatActivity {
         MainApp.hhid++;
         MainApp.mwraCount = 0;
 
-        if (MainApp.num_chlid_12_23 < Integer.parseInt(listings.getHh14a())) {
-            bi.hh11.setText(listings.getHh11());
-            bi.hh12.setText(listings.getHh12());
+        if (MainApp.isback_family_listing == 2) {
 
-            bi.hh1301.setChecked(listings.getHh13() == "1" ? true : false);
-            bi.hh1302.setChecked(listings.getHh13() == "2" ? true : false);
+            if (MainApp.num_chlid_12_23 == Integer.parseInt(listings.getHh14a())) {
+                bi.hh11.setText(listings.getHh11());
+                bi.hh12.setText(listings.getHh12());
 
-        } else {
-            listings.setHh05(String.valueOf(MainApp.hhid));
-            listings.setHh11("");
-            listings.setHh12("");
-            listings.setHh13("");
-            listings.setHh13a("");
-            listings.setHh14("");
-            listings.setHh14a("");
-            listings.setHh15("");
-            bi.btnEnd.setVisibility(MainApp.hhid == 1 ? View.GONE : View.VISIBLE);
+                bi.hh1301.setChecked(listings.getHh13() == "1" ? true : false);
+                bi.hh1302.setChecked(listings.getHh13() == "2" ? true : false);
+
+            } else {
+                listings.setHh05(String.valueOf(MainApp.hhid));
+                listings.setHh11("");
+                listings.setHh12("");
+                listings.setHh13("");
+                listings.setHh13a("");
+                listings.setHh14("");
+                listings.setHh14a("");
+                listings.setHh15("");
+                bi.btnEnd.setVisibility(MainApp.hhid == 1 ? View.GONE : View.VISIBLE);
+            }
+
         }
 
 

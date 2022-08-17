@@ -123,6 +123,7 @@ public class ChildActivity extends AppCompatActivity {
                 Toast.makeText(this, "" + MainApp.num_chlid_12_23, Toast.LENGTH_SHORT).show();
                 //     startActivity(new Intent(this, SectionBActivity.class));
             } else {
+                MainApp.isback_family_listing = 2;
                 startActivity(new Intent(this, FamilyListingActivity.class));
             }
         } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

@@ -92,6 +92,7 @@ public class MainApp extends Application {
     public static boolean pregComplete;
     public static int mwraCount = 0;
     public static int num_chlid_12_23 = 0;
+    public static int isback_family_listing = 0;
     public static int childCount = 0;
     public static int pregCount = 0;
     public static String selectedFemale = "";
