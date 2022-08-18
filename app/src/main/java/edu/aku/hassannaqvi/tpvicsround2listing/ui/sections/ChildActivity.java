@@ -67,6 +67,9 @@ public class ChildActivity extends AppCompatActivity {
         long rowId = 0;
 
         try {
+
+            listings.setHhchlidsno(String.valueOf(MainApp.num_chlid_12_23));
+
             rowId = db.addChild(listings);
 
             if (rowId > 0) {
@@ -74,8 +77,9 @@ public class ChildActivity extends AppCompatActivity {
 
                 listings.setId(String.valueOf(rowId));
                 listings.setUid(listings.getDeviceId() + listings.getId());
+                listings.setUuid(listings.getDeviceId() + listings.getId() + listings.getHhchlidsno());
 
-                updCount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UID, listings.getUid());
+                updCount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UUID, listings.getUuid());
 
                 if (updCount > 0) {
                     return true;

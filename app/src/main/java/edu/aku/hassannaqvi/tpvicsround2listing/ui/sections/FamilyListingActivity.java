@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,6 +46,9 @@ public class FamilyListingActivity extends AppCompatActivity {
         MainApp.hhid++;
         MainApp.mwraCount = 0;
 
+        bi.btnAddChild.setVisibility(View.GONE);
+
+
         if (MainApp.isback_family_listing == 2) {
 
             if (MainApp.num_chlid_12_23 == Integer.parseInt(listings.getHh14a())) {
@@ -61,6 +65,8 @@ public class FamilyListingActivity extends AppCompatActivity {
 
                 bi.hh14a.setText(listings.getHh14a());
 
+                bi.btnAddChild.setVisibility(View.GONE);
+
             } else {
                 listings.setHh05(String.valueOf(MainApp.hhid));
                 listings.setHh11("");
@@ -69,8 +75,11 @@ public class FamilyListingActivity extends AppCompatActivity {
                 listings.setHh13a("");
                 listings.setHh14("");
                 listings.setHh14a("");
+                listings.setHhchlidsno("");
+                listings.setHh13cname("");
                 listings.setHh15("");
                 bi.btnEnd.setVisibility(MainApp.hhid == 1 ? View.GONE : View.VISIBLE);
+                bi.btnAddChild.setVisibility(View.GONE);
             }
 
         }
@@ -91,6 +100,7 @@ public class FamilyListingActivity extends AppCompatActivity {
         bi.hhid.setText("SERO22-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
         Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
 
+
         bi.hh1301.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -99,21 +109,21 @@ public class FamilyListingActivity extends AppCompatActivity {
                 } catch (NumberFormatException e) {
                     bi.hh13a.setMaxvalue(0f);
                 }
-
             }
         });
 
-        bi.hh1401.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        bi.hh14.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                try {
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == R.id.hh1401) {
                     bi.hh14a.setMaxvalue(Float.parseFloat(bi.hh13a.getText().toString()));
-                } catch (NumberFormatException e) {
-                    bi.hh14a.setMaxvalue(0f);
+                    bi.btnAddChild.setVisibility(View.VISIBLE);
+                } else {
+                    bi.btnAddChild.setVisibility(View.GONE);
                 }
             }
         });
-
 
     }
 
@@ -194,7 +204,11 @@ public class FamilyListingActivity extends AppCompatActivity {
 
 
     public void btnAddChild(View view) {
-        startActivity(new Intent(this, ChildActivity.class));
+        if (Integer.parseInt(bi.hh12.getText().toString()) < Integer.parseInt(bi.hh14a.getText().toString())) {
+            Toast.makeText(this, "Number of 12 - 23 months cannot be greater than total number of household", Toast.LENGTH_SHORT).show();
+        } else {
+            startActivity(new Intent(this, ChildActivity.class));
+        }
     }
 
 
@@ -206,7 +220,6 @@ public class FamilyListingActivity extends AppCompatActivity {
             finish();
             if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10()) || listings.getHh15().equals("1")) {
                 //   Toast.makeText(this, "Staring Family", Toast.LENGTH_SHORT).show();
-
                 startActivity(new Intent(this, FamilyListingActivity.class));
 
             } else {

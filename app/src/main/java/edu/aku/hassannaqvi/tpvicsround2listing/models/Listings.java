@@ -31,6 +31,7 @@ public class Listings extends BaseObservable {
     // APP VARIABLES
     private String id = StringUtils.EMPTY;
     private String uid = StringUtils.EMPTY;
+    private String uuid = StringUtils.EMPTY;
     private String cluster = StringUtils.EMPTY;
     private String enumCode = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
@@ -75,6 +76,7 @@ public class Listings extends BaseObservable {
     private String hh13a = StringUtils.EMPTY;
     private String hh14 = StringUtils.EMPTY;
     private String hh14a = StringUtils.EMPTY;
+    private String hhchlidsno = StringUtils.EMPTY;
     private String hh13cname = StringUtils.EMPTY;
     private String hh15 = StringUtils.EMPTY;
 
@@ -107,6 +109,28 @@ public class Listings extends BaseObservable {
         setAppver(MainApp.versionName + "." + MainApp.versionCode);
         setEnumCode(MainApp.user.getDist_id());
 
+    }
+
+
+    @Bindable
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+        notifyPropertyChanged(BR.uuid);
+    }
+
+
+    @Bindable
+    public String getHhchlidsno() {
+        return hhchlidsno;
+    }
+
+    public void setHhchlidsno(String hhchlidsno) {
+        this.hhchlidsno = hhchlidsno;
+        notifyPropertyChanged(BR.hhchlidsno);
     }
 
 
@@ -581,6 +605,7 @@ public class Listings extends BaseObservable {
     public Listings Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_UID));
+        this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_UUID));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_USERNAME));
         this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_CLUSTER));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_SYSDATE));
@@ -646,6 +671,7 @@ public class Listings extends BaseObservable {
             this.hh13a = json.getString("hh13a");
             this.hh14 = json.getString("hh14");
             this.hh14a = json.getString("hh14a");
+            this.hhchlidsno = json.getString("hhchlidsno");
             this.hh13cname = json.getString("hh13cname");
             this.hh15 = json.getString("hh15");
 
@@ -702,6 +728,7 @@ public class Listings extends BaseObservable {
                 .put("hh13a", hh13a)
                 .put("hh14", hh14)
                 .put("hh14a", hh14a)
+                .put("hhchlidsno", hhchlidsno)
                 .put("hh13cname", hh13cname)
                 .put("hh15", hh15);
         return json.toString();
@@ -714,6 +741,7 @@ public class Listings extends BaseObservable {
 
         json.put(ListingsTable.COLUMN_ID, this.id);
         json.put(ListingsTable.COLUMN_UID, this.uid);
+        json.put(ListingsTable.COLUMN_UUID, this.uuid);
         json.put(ListingsTable.COLUMN_USERNAME, this.userName);
         json.put(ListingsTable.COLUMN_CLUSTER, this.cluster);
         json.put(ListingsTable.COLUMN_SYSDATE, this.sysDate);

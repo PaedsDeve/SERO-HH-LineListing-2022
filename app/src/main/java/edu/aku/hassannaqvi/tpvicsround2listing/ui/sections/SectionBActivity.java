@@ -67,6 +67,8 @@ public class SectionBActivity extends AppCompatActivity {
         listings.setHh13a("");
         listings.setHh14("");
         listings.setHh14a("");
+        listings.setHhchlidsno("");
+        listings.setHh13cname("");
         listings.setHh15("");
 
 /*
@@ -79,7 +81,7 @@ public class SectionBActivity extends AppCompatActivity {
         }
 */
 
-        bi.hhid.setText("TPV-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", maxStructure));
+        bi.hhid.setText("SERO22-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", maxStructure));
         Toast.makeText(this, "Staring Structure", Toast.LENGTH_SHORT).show();
 
     }
