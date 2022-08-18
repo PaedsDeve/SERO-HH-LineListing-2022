@@ -57,8 +57,8 @@
                     android:textSize="56sp"
                     android:textStyle="bold" />
 
-
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
         <ScrollView
@@ -362,7 +362,9 @@
                             app:maxValue="20"
                             app:minValue="1"
                             app:type="range" />
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
 
@@ -381,7 +383,7 @@
                         android:layout_weight="1"
                         android:background="@color/redLight"
                         android:onClick="btnAddChild"
-                        android:text="Add Child (12 - 23 months)"
+                        android:text="Add Child"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -461,9 +463,10 @@
                     android:orientation="horizontal"
                     android:padding="24dp">
 
+
                     <Button
                         android:id="@+id/btn_End"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
@@ -491,7 +494,7 @@
 
                     <Button
                         android:id="@+id/btn_Continue"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/capsule"

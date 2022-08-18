@@ -124,7 +124,6 @@ public class ChildActivity extends AppCompatActivity {
             finish();
             if (MainApp.num_chlid_12_23 < Integer.parseInt(MainApp.listings.getHh14a())) {
                 startActivity(new Intent(this, ChildActivity.class));
-                Toast.makeText(this, "" + MainApp.num_chlid_12_23, Toast.LENGTH_SHORT).show();
                 //     startActivity(new Intent(this, SectionBActivity.class));
             } else {
                 MainApp.isback_family_listing = 2;

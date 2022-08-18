@@ -691,7 +691,7 @@ public class Listings extends BaseObservable {
 
 
     public String sAtoString() throws JSONException {
-        Log.d(TAG, "cRtoString: ");
+        Log.d(TAG, "sAtoString: ");
         JSONObject json = new JSONObject();
 
         json.put("hh01", hh01)
@@ -757,11 +757,13 @@ public class Listings extends BaseObservable {
         json.put(ListingsTable.COLUMN_GPSLNG, this.gpsLng);
         json.put(ListingsTable.COLUMN_GPSDATE, this.gpsDT);
         json.put(ListingsTable.COLUMN_GPSACC, this.gpsAcc);
+        json.put(ListingsTable.COLUMN_END_TIME, this.endTime);
+        json.put(ListingsTable.COLUMN_START_TIME, this.startTime);
+
+
         json.put(ListingsTable.COLUMN_SA, new JSONObject(sAtoString()));
         json.put(ListingsTable.COLUMN_SB, new JSONObject(sBtoString()));
         json.put(ListingsTable.COLUMN_SC, new JSONObject(sCtoString()));
-        json.put(ListingsTable.COLUMN_END_TIME, this.endTime);
-        json.put(ListingsTable.COLUMN_START_TIME, this.startTime);
 
       /*  json.put(ListingsTable.COLUMN_SA, this.sA);
         json.put(ListingsTable.COLUMN_SB, this.sB);

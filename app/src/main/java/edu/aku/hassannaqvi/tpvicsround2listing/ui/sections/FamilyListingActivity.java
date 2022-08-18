@@ -44,7 +44,6 @@ public class FamilyListingActivity extends AppCompatActivity {
         db = MainApp.appInfo.dbHelper;
 
         MainApp.hhid++;
-        MainApp.mwraCount = 0;
 
         bi.btnAddChild.setVisibility(View.GONE);
 
@@ -215,8 +214,24 @@ public class FamilyListingActivity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
 
+        Toast.makeText(this, "value of hhid = " + MainApp.hhid, Toast.LENGTH_LONG).show();
+
         //saveDraft();
         if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
+
+            listings.setHh05(String.valueOf(MainApp.hhid));
+            listings.setHh11("");
+            listings.setHh12("");
+            listings.setHh13("");
+            listings.setHh13a("");
+            listings.setHh14("");
+            listings.setHh14a("");
+            listings.setHhchlidsno("");
+            listings.setHh13cname("");
+            listings.setHh15("");
+            bi.btnEnd.setVisibility(MainApp.hhid == 1 ? View.GONE : View.VISIBLE);
+            bi.btnAddChild.setVisibility(View.GONE);
+
             finish();
             if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10()) || listings.getHh15().equals("1")) {
                 //   Toast.makeText(this, "Staring Family", Toast.LENGTH_SHORT).show();
@@ -225,7 +240,6 @@ public class FamilyListingActivity extends AppCompatActivity {
             } else {
                 //     Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, SectionBActivity.class));
-
             }
         } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
     }

@@ -4,13 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_child.xml" value="0.1" />
-        <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_family_listing.xml" value="0.4675" />
+        <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_family_listing.xml" value="0.45125" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_listings_reporter.xml" value="0.55" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_mwra_listing.xml" value="0.55" />
-        <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_section_a.xml" value="0.36666666666666664" />
-        <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_section_b.xml" value="0.36666666666666664" />
+        <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_section_a.xml" value="0.45125" />
+        <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_section_b.xml" value="0.67" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_sync.xml" value="0.55" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/household_row.xml" value="0.36666666666666664" />
       </map>
