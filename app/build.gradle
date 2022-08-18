@@ -102,7 +102,7 @@ android {
         }
 
         debug {
-            resValue("string", "DB_PASSWORD_tpvicsround2listing.db", "VaLu@b1ePeRcE!V3")
+            resValue("string", "DB_PASSWORD_sero22listing.db", "VaLu@b1ePeRcE!V3")
         }
     }
     compileOptions {
