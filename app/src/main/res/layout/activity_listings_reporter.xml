@@ -10,7 +10,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.tpvicsround2listing.ui.lists.ListingsReporter" />
+            type="edu.aku.hassannaqvi.sero22hhlisting.ui.lists.ListingsReporter" />
     </data>
 
 

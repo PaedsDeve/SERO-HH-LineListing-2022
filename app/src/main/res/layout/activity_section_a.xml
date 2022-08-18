@@ -8,11 +8,11 @@
 
         <variable
             name="listings"
-            type="edu.aku.hassannaqvi.tpvicsround2listing.models.Listings" />
+            type="edu.aku.hassannaqvi.sero22hhlisting.models.Listings" />
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.tpvicsround2listing.ui.sections.SectionAActivity" />
+            type="edu.aku.hassannaqvi.sero22hhlisting.ui.sections.SectionAActivity" />
     </data>
 
     <LinearLayout
