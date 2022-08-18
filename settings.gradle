@@ -9,5 +9,5 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "TPVICS Round2 Listing"
+rootProject.name = "SERO22 HH Listing"
 include ':app'

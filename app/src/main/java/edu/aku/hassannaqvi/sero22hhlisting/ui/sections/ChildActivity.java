@@ -78,6 +78,7 @@ public class ChildActivity extends AppCompatActivity {
                 listings.setUid(listings.getDeviceId() + listings.getId());
                 listings.setUuid(listings.getDeviceId() + listings.getId() + listings.getHhchlidsno());
 
+                updCount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UID, listings.getUid());
                 updCount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UUID, listings.getUuid());
 
                 if (updCount > 0) {
@@ -100,7 +101,15 @@ public class ChildActivity extends AppCompatActivity {
     private boolean updateDB() {
         long updcount = 0;
         try {
+
+            listings.setHhchlidsno(String.valueOf(MainApp.num_chlid_12_23));
             updcount = db.updateFormColumn(TableContracts.ListingsTable.COLUMN_SC, listings.sCtoString());
+
+            listings.setUid(listings.getDeviceId() + listings.getId());
+            listings.setUuid(listings.getDeviceId() + listings.getId() + listings.getHhchlidsno());
+
+            updcount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UUID, listings.getUuid());
+
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());
@@ -119,16 +128,38 @@ public class ChildActivity extends AppCompatActivity {
 
         //saveDraft();
 
-        if (insertRecord()) {
+        //if (insertRecord()) {
+
+        if (MainApp.num_chlid_12_23 == 1) {
+
+            if (updateDB()) {
+                finish();
+                if (MainApp.num_chlid_12_23 < Integer.parseInt(MainApp.listings.getHh14a())) {
+                    bi.hh13cname.setText(null);
+                    startActivity(new Intent(this, ChildActivity.class));
+                    //     startActivity(new Intent(this, SectionBActivity.class));
+                } else {
+                    MainApp.isback_family_listing = 2;
+                    startActivity(new Intent(this, FamilyListingActivity.class));
+                }
+            } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+
+
+        } else {
+
+            insertRecord();
             finish();
+
             if (MainApp.num_chlid_12_23 < Integer.parseInt(MainApp.listings.getHh14a())) {
+                bi.hh13cname.setText(null);
                 startActivity(new Intent(this, ChildActivity.class));
                 //     startActivity(new Intent(this, SectionBActivity.class));
             } else {
                 MainApp.isback_family_listing = 2;
                 startActivity(new Intent(this, FamilyListingActivity.class));
             }
-        } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 
