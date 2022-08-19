@@ -45,7 +45,7 @@ public class ChildActivity extends AppCompatActivity {
         db = MainApp.appInfo.dbHelper;
 
         MainApp.num_chlid_12_23++;
-        bi.hhid.setText("SERO22-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
+        bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
         bi.childSno.setText("Child#: " + MainApp.num_chlid_12_23 + " of " + MainApp.listings.getHh14a());
 
         Toast.makeText(this, "Staring Chlid", Toast.LENGTH_SHORT).show();

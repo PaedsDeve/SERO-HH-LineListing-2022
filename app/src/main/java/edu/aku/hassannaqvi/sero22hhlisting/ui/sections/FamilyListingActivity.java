@@ -43,8 +43,6 @@ public class FamilyListingActivity extends AppCompatActivity {
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
 
-        MainApp.hhid++;
-
         bi.btnAddChild.setVisibility(View.GONE);
 
 
@@ -66,8 +64,13 @@ public class FamilyListingActivity extends AppCompatActivity {
             bi.btnAddChild.setVisibility(View.GONE);
 
             MainApp.num_chlid_12_23 = 0;
+            MainApp.isback_family_listing = 0;
+
 
         } else {
+
+            MainApp.hhid++;
+
             listings.setHh05(String.valueOf(MainApp.hhid));
             listings.setHh11("");
             listings.setHh12("");
@@ -81,6 +84,7 @@ public class FamilyListingActivity extends AppCompatActivity {
             bi.btnEnd.setVisibility(MainApp.hhid == 1 ? View.GONE : View.VISIBLE);
             bi.btnAddChild.setVisibility(View.GONE);
 
+
         }
 
 
@@ -89,15 +93,16 @@ public class FamilyListingActivity extends AppCompatActivity {
         }
 
 
+        bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
+        Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
+
+
 /*        if (!listings.getHh02e().isEmpty()){
             if (listings.getHh02e().equals("1"))
                 appendingChar = "A";
             else if ((listings.getHh02e().equals("2")))
                 appendingChar = "B";
         }*/
-
-        bi.hhid.setText("SERO22-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
-        Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
 
 
         bi.hh1301.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -158,8 +163,8 @@ public class FamilyListingActivity extends AppCompatActivity {
     private boolean updateDB_Hh15() {
         long updcount = 0;
 
-        updcount = db.updateFormColumn_Hh15(TableContracts.ListingsTable.COLUMN_UID, listings.getUid());
-        updcount = db.updateFormColumn_Hh15(TableContracts.ListingsTable.COLUMN_UUID, listings.getUuid());
+        //updcount = db.updateFormColumn_Hh15(TableContracts.ListingsTable.COLUMN_UID, listings.getUid());
+        //updcount = db.updateFormColumn_Hh15(TableContracts.ListingsTable.COLUMN_UUID, listings.getUuid());
 
         if (updcount > 0) return true;
         else {
@@ -184,6 +189,31 @@ public class FamilyListingActivity extends AppCompatActivity {
             return false;
         }
     }
+
+
+    private boolean updateDB_FamilyListing_Back() {
+        long updcount = 0;
+        try {
+
+            String val = listings.getId();
+            int val_no_chlid = Integer.parseInt(bi.hh14a.getText().toString());
+
+            for (int a = Integer.parseInt(val); a >= val_no_chlid; a--) {
+                updcount = db.updateFormColumn_Hh15(TableContracts.ListingsTable.COLUMN_SC, listings.sCtoString(), val);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.d(TAG, R.string.upd_db_form + e.getMessage());
+            Toast.makeText(this, R.string.upd_db_form + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        if (updcount > 0) return true;
+        else {
+            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
 
     private boolean insertRecord() {
         long rowId = 0;
@@ -251,42 +281,27 @@ public class FamilyListingActivity extends AppCompatActivity {
 
         //saveDraft();
 
-        if (MainApp.isback_family_listing == 2) {
+        if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
 
-            //updateDB_Hh15();
-            updateDB();
+            finish();
 
             if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10()) || listings.getHh15().equals("1")) {
+                //   Toast.makeText(this, "Staring Family", Toast.LENGTH_SHORT).show();
+
                 RefreshFamilyListing();
+
                 startActivity(new Intent(this, FamilyListingActivity.class));
 
             } else {
+                //     Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
+
                 RefreshFamilyListing();
+
                 startActivity(new Intent(this, SectionBActivity.class));
             }
+        } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 
-        } else {
 
-            if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
-
-                finish();
-                if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10()) || listings.getHh15().equals("1")) {
-                    //   Toast.makeText(this, "Staring Family", Toast.LENGTH_SHORT).show();
-
-                    RefreshFamilyListing();
-
-                    startActivity(new Intent(this, FamilyListingActivity.class));
-
-                } else {
-                    //     Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
-
-                    RefreshFamilyListing();
-
-                    startActivity(new Intent(this, SectionBActivity.class));
-                }
-            } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-
-        }
     }
 
     private void saveDraft() {

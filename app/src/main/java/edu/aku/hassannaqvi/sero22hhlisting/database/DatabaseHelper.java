@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.sero22hhlisting.database;
 
 import static edu.aku.hassannaqvi.sero22hhlisting.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.sero22hhlisting.core.MainApp.PROJECT_NAME;
+import static edu.aku.hassannaqvi.sero22hhlisting.core.MainApp.listings;
 import static edu.aku.hassannaqvi.sero22hhlisting.core.UserAuth.checkPassword;
 import static edu.aku.hassannaqvi.sero22hhlisting.database.CreateTable.SQL_ALTER_LISTING_GPS_ACC;
 import static edu.aku.hassannaqvi.sero22hhlisting.database.CreateTable.SQL_ALTER_LISTING_GPS_DATE;
@@ -295,8 +296,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(column, value);
 
-        String selection = ListingsTable.COLUMN_UID + " =? ";
-        String[] selectionArgs = {String.valueOf(MainApp.listings.getUid())};
+        String selection = ListingsTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(listings.getId())};
 
         return db.update(TableContracts.ListingsTable.TABLE_NAME,
                 values,
@@ -304,6 +305,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
     }
 
+
+    //UPDATE in DB
+    public int updateFormColumn_Hh15(String column, String value, String id) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = ListingsTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(id)};
+
+        return db.update(TableContracts.ListingsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
 
 
     public int updateEnding() {

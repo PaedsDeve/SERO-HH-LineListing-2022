@@ -81,7 +81,7 @@ public class SectionBActivity extends AppCompatActivity {
         }
 */
 
-        bi.hhid.setText("SERO22-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", maxStructure));
+        bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", maxStructure));
         Toast.makeText(this, "Staring Structure", Toast.LENGTH_SHORT).show();
 
     }
@@ -136,13 +136,13 @@ public class SectionBActivity extends AppCompatActivity {
                 editor.putString(selectedCluster.getEbcode(), maxStructure + "|" + listings.getTabNo());
                 editor.apply();
 
-                    return true;
-                }
-
-            } else {
-                Toast.makeText(this, "Updating Database… ERROR!", Toast.LENGTH_SHORT).show();
-                return false;
+                return true;
             }
+
+        } else {
+            Toast.makeText(this, "Updating Database… ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
         return false;
     }
