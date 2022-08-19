@@ -43,10 +43,9 @@ public class FamilyListingActivity extends AppCompatActivity {
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
 
-        bi.btnAddChild.setVisibility(View.GONE);
 
 
-        if (MainApp.isback_family_listing == 2) {
+        /*if (MainApp.isback_family_listing == 2) {
 
             bi.hh11.setText(listings.getHh11());
             bi.hh12.setText(listings.getHh12());
@@ -85,11 +84,62 @@ public class FamilyListingActivity extends AppCompatActivity {
             bi.btnAddChild.setVisibility(View.GONE);
 
 
-        }
+        }*/
 
 
-        if (MainApp.hhid >= Integer.parseInt(MainApp.listings.getHh10())) {
+        bi.btnAddChild.setVisibility(View.GONE);
+
+
+        MainApp.num_chlid_12_23 = 0;
+        MainApp.hhid++;
+
+        listings.setHh05(String.valueOf(MainApp.hhid));
+        listings.setHh11("");
+        listings.setHh12("");
+        listings.setHh13("");
+        listings.setHh13a("");
+        listings.setHh14("");
+        listings.setHh14a("");
+        listings.setHhchlidsno("");
+        listings.setHh13cname("");
+        listings.setHh15("");
+
+
+        bi.btnEnd.setVisibility(MainApp.hhid == 1 ? View.GONE : View.VISIBLE);
+        bi.btnAddChild.setVisibility(View.GONE);
+
+
+        if (MainApp.hhid > Integer.parseInt(MainApp.listings.getHh10()) && MainApp.isback_family_listing == 2) {
+            bi.fldGrpCVhh11.setVisibility(View.GONE);
+            bi.fldGrpCVhh12.setVisibility(View.GONE);
+            bi.fldGrpCVhh13.setVisibility(View.GONE);
+            bi.fldGrpCVhh14.setVisibility(View.GONE);
             bi.fldGrpCVhh15.setVisibility(View.VISIBLE);
+            bi.btnContinue.setVisibility(View.VISIBLE);
+        } else if (MainApp.hhid > Integer.parseInt(MainApp.listings.getHh10()) && MainApp.isback_family_listing == 0) {
+            bi.fldGrpCVhh11.setVisibility(View.GONE);
+            bi.fldGrpCVhh12.setVisibility(View.GONE);
+            bi.fldGrpCVhh13.setVisibility(View.GONE);
+            bi.fldGrpCVhh14.setVisibility(View.GONE);
+            bi.fldGrpCVhh15.setVisibility(View.VISIBLE);
+            bi.btnContinue.setVisibility(View.VISIBLE);
+        } else if (MainApp.hhid == Integer.parseInt(MainApp.listings.getHh10())) {
+            bi.fldGrpCVhh11.setVisibility(View.VISIBLE);
+            bi.fldGrpCVhh12.setVisibility(View.VISIBLE);
+            bi.fldGrpCVhh13.setVisibility(View.VISIBLE);
+            bi.fldGrpCVhh14.setVisibility(View.VISIBLE);
+            bi.fldGrpCVhh15.setVisibility(View.GONE);
+            bi.btnContinue.setVisibility(View.VISIBLE);
+        } else {
+
+            if (MainApp.isback_family_listing == 0 || MainApp.hhid == 1) {
+                bi.fldGrpCVhh11.setVisibility(View.VISIBLE);
+                bi.fldGrpCVhh12.setVisibility(View.VISIBLE);
+                bi.fldGrpCVhh13.setVisibility(View.VISIBLE);
+                bi.fldGrpCVhh14.setVisibility(View.VISIBLE);
+            }
+
+
         }
 
 
@@ -123,11 +173,34 @@ public class FamilyListingActivity extends AppCompatActivity {
                 if (i == R.id.hh1401) {
                     bi.hh14a.setMaxvalue(Float.parseFloat(bi.hh13a.getText().toString()));
                     bi.btnAddChild.setVisibility(View.VISIBLE);
+                    bi.btnContinue.setVisibility(View.GONE);
                 } else {
                     bi.btnAddChild.setVisibility(View.GONE);
+                    bi.btnContinue.setVisibility(View.VISIBLE);
                 }
             }
         });
+
+
+        bi.hh15.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == R.id.hh1501) {
+                    bi.fldGrpCVhh11.setVisibility(View.VISIBLE);
+                    bi.fldGrpCVhh12.setVisibility(View.VISIBLE);
+                    bi.fldGrpCVhh13.setVisibility(View.VISIBLE);
+                    bi.fldGrpCVhh14.setVisibility(View.VISIBLE);
+                } else {
+                    bi.fldGrpCVhh11.setVisibility(View.GONE);
+                    bi.fldGrpCVhh12.setVisibility(View.GONE);
+                    bi.fldGrpCVhh13.setVisibility(View.GONE);
+                    bi.fldGrpCVhh13a.setVisibility(View.GONE);
+                    bi.fldGrpCVhh14.setVisibility(View.GONE);
+                    bi.fldGrpCVhh14a.setVisibility(View.GONE);
+                }
+            }
+        });
+
 
     }
 
@@ -160,48 +233,10 @@ public class FamilyListingActivity extends AppCompatActivity {
     }*/
 
 
-    private boolean updateDB_Hh15() {
-        long updcount = 0;
-
-        //updcount = db.updateFormColumn_Hh15(TableContracts.ListingsTable.COLUMN_UID, listings.getUid());
-        //updcount = db.updateFormColumn_Hh15(TableContracts.ListingsTable.COLUMN_UUID, listings.getUuid());
-
-        if (updcount > 0) return true;
-        else {
-            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-    }
-
-
     private boolean updateDB() {
         long updcount = 0;
         try {
-            updcount = db.updateFormColumn_Hh15(TableContracts.ListingsTable.COLUMN_SC, listings.sCtoString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.d(TAG, R.string.upd_db_form + e.getMessage());
-            Toast.makeText(this, R.string.upd_db_form + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-        if (updcount > 0) return true;
-        else {
-            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-    }
-
-
-    private boolean updateDB_FamilyListing_Back() {
-        long updcount = 0;
-        try {
-
-            String val = listings.getId();
-            int val_no_chlid = Integer.parseInt(bi.hh14a.getText().toString());
-
-            for (int a = Integer.parseInt(val); a >= val_no_chlid; a--) {
-                updcount = db.updateFormColumn_Hh15(TableContracts.ListingsTable.COLUMN_SC, listings.sCtoString(), val);
-            }
-
+            updcount = db.updateFormColumn(TableContracts.ListingsTable.COLUMN_SC, listings.sCtoString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());
@@ -248,13 +283,14 @@ public class FamilyListingActivity extends AppCompatActivity {
 
 
     public void btnAddChild(View view) {
-        if (Integer.parseInt(bi.hh12.getText().toString()) < Integer.parseInt(bi.hh14a.getText().toString())) {
-            Toast.makeText(this, "Number of 12 - 23 months cannot be greater than total number of household", Toast.LENGTH_SHORT).show();
+        if (Integer.parseInt(bi.hh12.getText().toString()) <= Integer.parseInt(bi.hh14a.getText().toString())) {
+            Toast.makeText(this, "Number of 6 - 23 months children cannot be greater than total number of household members", Toast.LENGTH_LONG).show();
         } else {
 
             if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
                 startActivity(new Intent(this, ChildActivity.class));
             }
+
         }
     }
 
@@ -277,27 +313,42 @@ public class FamilyListingActivity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
 
-        Toast.makeText(this, "value of hhid = " + MainApp.hhid, Toast.LENGTH_LONG).show();
-
         //saveDraft();
 
-        if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
-
-            finish();
+       /* if (MainApp.hhid > 1) {
 
             if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10()) || listings.getHh15().equals("1")) {
-                //   Toast.makeText(this, "Staring Family", Toast.LENGTH_SHORT).show();
+                insertRecord();
+                finish();
+                startActivity(new Intent(this, FamilyListingActivity.class));
+            } else if (MainApp.hhid >= Integer.parseInt(MainApp.listings.getHh10()) && listings.getHh15().equals("1")) {
+                insertRecord();
+                finish();
+                startActivity(new Intent(this, FamilyListingActivity.class));
+            } else if (MainApp.hhid >= Integer.parseInt(MainApp.listings.getHh10()) && listings.getHh15().equals("2")) {
+                updateDB();
+                finish();
+                startActivity(new Intent(this, SectionBActivity.class));
+            } else if (MainApp.hhid >= Integer.parseInt(MainApp.listings.getHh10()) && listings.getHh15().equals("")) {
+                insertRecord();
+                finish();
+                startActivity(new Intent(this, FamilyListingActivity.class));
+            }
 
-                RefreshFamilyListing();
+        }*/
+
+
+        if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
+            finish();
+            if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10()) || listings.getHh15().equals("1")) {
+                //   Toast.makeText(this, "Staring Family", Toast.LENGTH_SHORT).show();
 
                 startActivity(new Intent(this, FamilyListingActivity.class));
 
             } else {
                 //     Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
-
-                RefreshFamilyListing();
-
                 startActivity(new Intent(this, SectionBActivity.class));
+
             }
         } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 

@@ -289,40 +289,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    //UPDATE in DB
-    public int updateFormColumn_Hh15(String column, String value) {
-        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
-
-        ContentValues values = new ContentValues();
-        values.put(column, value);
-
-        String selection = ListingsTable.COLUMN_ID + " =? ";
-        String[] selectionArgs = {String.valueOf(listings.getId())};
-
-        return db.update(TableContracts.ListingsTable.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-    }
-
-
-    //UPDATE in DB
-    public int updateFormColumn_Hh15(String column, String value, String id) {
-        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
-
-        ContentValues values = new ContentValues();
-        values.put(column, value);
-
-        String selection = ListingsTable.COLUMN_ID + " =? ";
-        String[] selectionArgs = {String.valueOf(id)};
-
-        return db.update(TableContracts.ListingsTable.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-    }
-
-
     public int updateEnding() {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
