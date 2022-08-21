@@ -456,9 +456,6 @@ public class FamilyListingActivity extends AppCompatActivity {
         //saveDraft();
         if (insertRecord()) {
             finish();
-
-            
-
             startActivity(new Intent(this, SectionBActivity.class));
 
         } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
