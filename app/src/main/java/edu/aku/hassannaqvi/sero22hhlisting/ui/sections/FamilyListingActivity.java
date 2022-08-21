@@ -397,7 +397,7 @@ public class FamilyListingActivity extends AppCompatActivity {
             if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10())) {
                 startActivity(new Intent(this, FamilyListingActivity.class));
             } else {
-                startActivity(new Intent(this, SectionBActivity.class));
+                startActivity(new Intent(this, Hh15Activity.class));
             }
         } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 
@@ -457,7 +457,8 @@ public class FamilyListingActivity extends AppCompatActivity {
         if (insertRecord()) {
             finish();
 
-            //     Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
+            
+
             startActivity(new Intent(this, SectionBActivity.class));
 
         } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
