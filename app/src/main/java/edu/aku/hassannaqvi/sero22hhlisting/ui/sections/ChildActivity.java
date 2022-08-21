@@ -139,8 +139,14 @@ public class ChildActivity extends AppCompatActivity {
                     startActivity(new Intent(this, ChildActivity.class));
                     //     startActivity(new Intent(this, SectionBActivity.class));
                 } else {
-                    MainApp.isback_family_listing = 2;
-                    startActivity(new Intent(this, FamilyListingActivity.class));
+
+                    if (MainApp.hhid >= Integer.parseInt(MainApp.listings.getHh10())) {
+                        MainApp.isback_family_listing = 0;
+                        startActivity(new Intent(this, Hh15Activity.class));
+                    } else {
+                        MainApp.isback_family_listing = 2;
+                        startActivity(new Intent(this, FamilyListingActivity.class));
+                    }
                 }
             } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 
@@ -155,8 +161,13 @@ public class ChildActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ChildActivity.class));
                 //     startActivity(new Intent(this, SectionBActivity.class));
             } else {
-                MainApp.isback_family_listing = 2;
-                startActivity(new Intent(this, FamilyListingActivity.class));
+                if (MainApp.hhid >= Integer.parseInt(MainApp.listings.getHh10())) {
+                    MainApp.isback_family_listing = 0;
+                    startActivity(new Intent(this, Hh15Activity.class));
+                } else {
+                    MainApp.isback_family_listing = 2;
+                    startActivity(new Intent(this, FamilyListingActivity.class));
+                }
             }
 
         }

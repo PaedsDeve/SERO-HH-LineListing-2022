@@ -44,7 +44,6 @@ public class FamilyListingActivity extends AppCompatActivity {
         db = MainApp.appInfo.dbHelper;
 
 
-
         /*if (MainApp.isback_family_listing == 2) {
 
             bi.hh11.setText(listings.getHh11());
@@ -87,11 +86,10 @@ public class FamilyListingActivity extends AppCompatActivity {
         }*/
 
 
-        bi.btnAddChild.setVisibility(View.GONE);
-
-
         MainApp.num_chlid_12_23 = 0;
         MainApp.hhid++;
+
+        bi.btnAddChild.setVisibility(View.GONE);
 
         listings.setHh05(String.valueOf(MainApp.hhid));
         listings.setHh11("");
@@ -105,11 +103,14 @@ public class FamilyListingActivity extends AppCompatActivity {
         listings.setHh15("");
 
 
+        bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
+        Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
+
         bi.btnEnd.setVisibility(MainApp.hhid == 1 ? View.GONE : View.VISIBLE);
         bi.btnAddChild.setVisibility(View.GONE);
 
 
-        if (MainApp.hhid > Integer.parseInt(MainApp.listings.getHh10()) && MainApp.isback_family_listing == 2) {
+        /*if (MainApp.hhid > Integer.parseInt(MainApp.listings.getHh10()) && MainApp.isback_family_listing == 2) {
             bi.fldGrpCVhh11.setVisibility(View.GONE);
             bi.fldGrpCVhh12.setVisibility(View.GONE);
             bi.fldGrpCVhh13.setVisibility(View.GONE);
@@ -141,18 +142,7 @@ public class FamilyListingActivity extends AppCompatActivity {
 
 
         }
-
-
-        bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
-        Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
-
-
-/*        if (!listings.getHh02e().isEmpty()){
-            if (listings.getHh02e().equals("1"))
-                appendingChar = "A";
-            else if ((listings.getHh02e().equals("2")))
-                appendingChar = "B";
-        }*/
+*/
 
 
         bi.hh1301.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -182,15 +172,18 @@ public class FamilyListingActivity extends AppCompatActivity {
         });
 
 
-        bi.hh15.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        /*bi.hh15.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i == R.id.hh1501) {
+
+
                     bi.fldGrpCVhh11.setVisibility(View.VISIBLE);
                     bi.fldGrpCVhh12.setVisibility(View.VISIBLE);
                     bi.fldGrpCVhh13.setVisibility(View.VISIBLE);
                     bi.fldGrpCVhh14.setVisibility(View.VISIBLE);
                 } else {
+
                     bi.fldGrpCVhh11.setVisibility(View.GONE);
                     bi.fldGrpCVhh12.setVisibility(View.GONE);
                     bi.fldGrpCVhh13.setVisibility(View.GONE);
@@ -199,7 +192,49 @@ public class FamilyListingActivity extends AppCompatActivity {
                     bi.fldGrpCVhh14a.setVisibility(View.GONE);
                 }
             }
-        });
+        });*/
+
+
+        /*if (bi.hh1501.isChecked()) {
+            MainApp.hhid++;
+            bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
+            Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
+        } else if (bi.hh1502.isChecked()) {
+            bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
+            Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
+        } else {
+
+            if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10()) && MainApp.isback_family_listing != 0) {
+                MainApp.hhid++;
+                bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
+                Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
+            } else {
+
+                if (MainApp.hhid <= Integer.parseInt(MainApp.listings.getHh10()) && MainApp.isback_family_listing == 2) {
+                    MainApp.hhid++;
+                    bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
+                    Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
+                } else {
+                    bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
+                    Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+        }*/
+
+
+
+
+        /*if (MainApp.hhid > Integer.parseInt(MainApp.listings.getHh10())) {
+
+            bi.fldGrpCVhh11.setVisibility(View.GONE);
+            bi.fldGrpCVhh12.setVisibility(View.GONE);
+            bi.fldGrpCVhh13.setVisibility(View.GONE);
+            bi.fldGrpCVhh14.setVisibility(View.GONE);
+
+            bi.fldGrpCVhh15.setVisibility(View.VISIBLE);
+        }*/
 
 
     }
@@ -290,7 +325,6 @@ public class FamilyListingActivity extends AppCompatActivity {
             if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
                 startActivity(new Intent(this, ChildActivity.class));
             }
-
         }
     }
 
@@ -315,7 +349,7 @@ public class FamilyListingActivity extends AppCompatActivity {
 
         //saveDraft();
 
-       /* if (MainApp.hhid > 1) {
+        /*if (MainApp.hhid > 1) {
 
             if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10()) || listings.getHh15().equals("1")) {
                 insertRecord();
@@ -338,17 +372,32 @@ public class FamilyListingActivity extends AppCompatActivity {
         }*/
 
 
-        if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
-            finish();
-            if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10()) || listings.getHh15().equals("1")) {
-                //   Toast.makeText(this, "Staring Family", Toast.LENGTH_SHORT).show();
+        /*if (MainApp.hhid > 1) {
 
+            if (MainApp.hhid <= Integer.parseInt(MainApp.listings.getHh10()) || listings.getHh15().equals("1")) {
+
+                insertRecord();
+                finish();
                 startActivity(new Intent(this, FamilyListingActivity.class));
 
-            } else {
-                //     Toast.makeText(this, "Staring Household", Toast.LENGTH_SHORT).show();
+
+            } else if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10()) || listings.getHh15().equals("2")) {
+
+                updateDB();
+                finish();
                 startActivity(new Intent(this, SectionBActivity.class));
 
+            }
+
+        }
+*/
+
+        if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
+            finish();
+            if (MainApp.hhid < Integer.parseInt(MainApp.listings.getHh10())) {
+                startActivity(new Intent(this, FamilyListingActivity.class));
+            } else {
+                startActivity(new Intent(this, SectionBActivity.class));
             }
         } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 

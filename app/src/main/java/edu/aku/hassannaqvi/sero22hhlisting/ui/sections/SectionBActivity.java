@@ -53,6 +53,7 @@ public class SectionBActivity extends AppCompatActivity {
 
         maxStructure++;
         MainApp.hhid = 0;
+        MainApp.isback_family_listing = 1;
 
         listings.setHh04(String.valueOf(maxStructure));
         listings.setHh07("");
