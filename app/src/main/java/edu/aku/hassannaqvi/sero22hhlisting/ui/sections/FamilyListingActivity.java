@@ -149,9 +149,9 @@ public class FamilyListingActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 try {
-                    bi.hh13a.setMaxvalue(Float.parseFloat(bi.hh12.getText().toString()) - 1f);
+                    //bi.hh13a.setMaxvalue(Float.parseFloat(bi.hh12.getText().toString()) - 1f);
                 } catch (NumberFormatException e) {
-                    bi.hh13a.setMaxvalue(0f);
+                    //bi.hh13a.setMaxvalue(0);
                 }
             }
         });
@@ -161,10 +161,12 @@ public class FamilyListingActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i == R.id.hh1401) {
-                    bi.hh14a.setMaxvalue(Float.parseFloat(bi.hh13a.getText().toString()));
+                    //bi.hh14a.setMaxvalue(Float.parseFloat(bi.hh13a.getText().toString()));
                     bi.btnAddChild.setVisibility(View.VISIBLE);
                     bi.btnContinue.setVisibility(View.GONE);
                 } else {
+                    bi.hh14a.setText(null);
+                    bi.fldGrpCVhh14a.setVisibility(View.GONE);
                     bi.btnAddChild.setVisibility(View.GONE);
                     bi.btnContinue.setVisibility(View.VISIBLE);
                 }
@@ -318,14 +320,35 @@ public class FamilyListingActivity extends AppCompatActivity {
 
 
     public void btnAddChild(View view) {
-        if (Integer.parseInt(bi.hh12.getText().toString()) <= Integer.parseInt(bi.hh14a.getText().toString())) {
-            Toast.makeText(this, "Number of 6 - 23 months children cannot be greater than total number of household members", Toast.LENGTH_LONG).show();
-        } else {
+        if (!formValidation()) return;
 
-            if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
-                startActivity(new Intent(this, ChildActivity.class));
+        if (bi.fldGrpCVhh14a.getVisibility() == View.VISIBLE) {
+            if (Integer.parseInt(bi.hh12.getText().toString()) <= Integer.parseInt(bi.hh14a.getText().toString())) {
+                Toast.makeText(this, "Number of 6 - 23 months children cannot be greater than or equal to total number of household members", Toast.LENGTH_LONG).show();
+                return;
             }
         }
+
+
+        if (bi.fldGrpCVhh13a.getVisibility() == View.VISIBLE) {
+            if (bi.hh13a.getVisibility() == View.VISIBLE && Integer.parseInt(bi.hh13a.getText().toString()) >= (Integer.parseInt(bi.hh12.getText().toString()))) {
+                Toast.makeText(this, "Total member of household cannot be greater than or equal to number of children less than 5 years ", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+
+
+        if (bi.fldGrpCVhh14a.getVisibility() == View.VISIBLE) {
+            if (bi.hh14a.getVisibility() == View.VISIBLE && Integer.parseInt(bi.hh14a.getText().toString()) > Integer.parseInt(bi.hh13a.getText().toString())) {
+                Toast.makeText(this, "Number of children less than 5 years cannot be less than number of children 6 - 23 months ", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+
+        if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
+            startActivity(new Intent(this, ChildActivity.class));
+        }
+
     }
 
     private void RefreshFamilyListing() {
@@ -389,8 +412,32 @@ public class FamilyListingActivity extends AppCompatActivity {
 
             }
 
+        }*/
+
+
+        if (bi.fldGrpCVhh14a.getVisibility() == View.VISIBLE) {
+            if (Integer.parseInt(bi.hh12.getText().toString()) <= Integer.parseInt(bi.hh14a.getText().toString())) {
+                Toast.makeText(this, "Number of 6 - 23 months children cannot be greater than or equal to total number of household members", Toast.LENGTH_LONG).show();
+                return;
+            }
         }
-*/
+
+
+        if (bi.fldGrpCVhh13a.getVisibility() == View.VISIBLE) {
+            if (bi.hh13a.getVisibility() == View.VISIBLE && Integer.parseInt(bi.hh13a.getText().toString()) >= (Integer.parseInt(bi.hh12.getText().toString()))) {
+                Toast.makeText(this, "Total member of household cannot be greater than or equal to number of children less than 5 years ", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+
+
+        if (bi.fldGrpCVhh14a.getVisibility() == View.VISIBLE) {
+            if (bi.hh14a.getVisibility() == View.VISIBLE && Integer.parseInt(bi.hh14a.getText().toString()) > Integer.parseInt(bi.hh13a.getText().toString())) {
+                Toast.makeText(this, "Number of children less than 5 years cannot be less than number of children 6 - 23 months ", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+
 
         if (MainApp.hhid == 1 ? updateDB() : insertRecord()) {
             finish();
@@ -399,8 +446,8 @@ public class FamilyListingActivity extends AppCompatActivity {
             } else {
                 startActivity(new Intent(this, Hh15Activity.class));
             }
-        } else Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-
+        } else
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -463,6 +510,7 @@ public class FamilyListingActivity extends AppCompatActivity {
 
 
     private boolean formValidation() {
+
         return Validator.emptyCheckingContainer(this, bi.GrpName);
 
 
@@ -480,6 +528,8 @@ public class FamilyListingActivity extends AppCompatActivity {
             }
         }
         return true;*/
+
+
     }
 
     @Override

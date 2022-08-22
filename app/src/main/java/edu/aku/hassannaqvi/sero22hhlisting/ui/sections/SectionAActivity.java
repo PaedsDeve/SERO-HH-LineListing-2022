@@ -288,8 +288,9 @@ public class SectionAActivity extends AppCompatActivity {
                 MainApp.selectedTab = MainApp.clusterInfo[1];
                 bi.ebMsg.setText("Existing structures: " + MainApp.maxStructure);
 
+            } else
+                Toast.makeText(this, "You forget to download cluster or this cluster not exist in our database", Toast.LENGTH_LONG).show();
 
-            }
         } else {
             selectedCluster = testEb;
             MainApp.maxStructure = 0;
@@ -298,9 +299,6 @@ public class SectionAActivity extends AppCompatActivity {
             bi.hh01a.setError("Not Found!");
             bi.hh01b.setError("Not Found!");
             bi.hh01c.setText("Not Found!");
-
-            Toast.makeText(this, "You forget to download cluster or this cluster not exist in our database", Toast.LENGTH_LONG).show();
-
         }
 
     }
