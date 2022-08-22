@@ -43,6 +43,9 @@ public class Hh15Activity extends AppCompatActivity {
         st = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(new Date().getTime());
         db = MainApp.appInfo.dbHelper;
 
+        listings.setHhchlidsno("");
+        listings.setHh13cname("");
+
         bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
         Toast.makeText(this, "Starting Completion", Toast.LENGTH_SHORT).show();
 

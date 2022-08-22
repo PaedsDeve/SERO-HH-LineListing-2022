@@ -125,23 +125,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="24dp"
+                    android:gravity="center"
                     android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btn_End"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:background="@color/redOverlay"
-                        android:onClick="btnEnd"
-                        android:text="Cancel"
-                        android:textColor="@color/white"
-                        android:visibility="gone" />
 
                     <Button
                         android:id="@+id/addChlid"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="12dp"
                         android:background="@color/greenLight"
                         android:onClick="btnContinue"

@@ -76,7 +76,7 @@ public class Listings extends BaseObservable {
     private String hh13a = StringUtils.EMPTY;
     private String hh14 = StringUtils.EMPTY;
     private String hh14a = StringUtils.EMPTY;
-    private String hhchlidsno = StringUtils.EMPTY;
+    private String hhchildsno = StringUtils.EMPTY;
     private String hh13cname = StringUtils.EMPTY;
     private String hh15 = StringUtils.EMPTY;
 
@@ -125,11 +125,11 @@ public class Listings extends BaseObservable {
 
     @Bindable
     public String getHhchlidsno() {
-        return hhchlidsno;
+        return hhchildsno;
     }
 
-    public void setHhchlidsno(String hhchlidsno) {
-        this.hhchlidsno = hhchlidsno;
+    public void setHhchlidsno(String hhchildsno) {
+        this.hhchildsno = hhchildsno;
         notifyPropertyChanged(BR.hhchlidsno);
     }
 
@@ -671,7 +671,7 @@ public class Listings extends BaseObservable {
             this.hh13a = json.getString("hh13a");
             this.hh14 = json.getString("hh14");
             this.hh14a = json.getString("hh14a");
-            this.hhchlidsno = json.getString("hhchlidsno");
+            this.hhchildsno = json.getString("hhchildsno");
             this.hh13cname = json.getString("hh13cname");
             this.hh15 = json.getString("hh15");
 
@@ -728,7 +728,7 @@ public class Listings extends BaseObservable {
                 .put("hh13a", hh13a)
                 .put("hh14", hh14)
                 .put("hh14a", hh14a)
-                .put("hhchlidsno", hhchlidsno)
+                .put("hhchildsno", hhchildsno)
                 .put("hh13cname", hh13cname)
                 .put("hh15", hh15);
         return json.toString();

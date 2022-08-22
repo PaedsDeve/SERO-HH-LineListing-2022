@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -297,6 +298,8 @@ public class SectionAActivity extends AppCompatActivity {
             bi.hh01a.setError("Not Found!");
             bi.hh01b.setError("Not Found!");
             bi.hh01c.setText("Not Found!");
+
+            Toast.makeText(this, "You forget to download cluster or this cluster not exist in our database", Toast.LENGTH_LONG).show();
 
         }
 

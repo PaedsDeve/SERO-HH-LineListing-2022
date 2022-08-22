@@ -10,7 +10,7 @@ public class TableContracts {
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
-        public static final String COLUMN_UUID = "_uuid";
+        public static final String COLUMN_UUID = "uuid";
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_CLUSTER = "cluster";
         public static final String COLUMN_SYSDATE = "sysdate";
@@ -55,7 +55,6 @@ public class TableContracts {
     }
 
 
-
     public static abstract class MwraTable implements BaseColumns {
         public static final String TABLE_NAME = "mwra";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
@@ -79,7 +78,7 @@ public class TableContracts {
 
     public static abstract class UsersTable implements BaseColumns {
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String TABLE_NAME = "AppUser";
+        public static final String TABLE_NAME = "users";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_PASSWORD = "passwordEnc";
