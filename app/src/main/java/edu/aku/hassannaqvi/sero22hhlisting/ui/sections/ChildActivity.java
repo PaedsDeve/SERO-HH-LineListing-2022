@@ -111,6 +111,7 @@ public class ChildActivity extends AppCompatActivity {
             updcount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UUID, listings.getUuid());
 
         } catch (JSONException e) {
+
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());
             Toast.makeText(this, R.string.upd_db_form + e.getMessage(), Toast.LENGTH_SHORT).show();
