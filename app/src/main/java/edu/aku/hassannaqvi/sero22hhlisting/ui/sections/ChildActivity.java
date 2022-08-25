@@ -137,6 +137,7 @@ public class ChildActivity extends AppCompatActivity {
                 finish();
                 if (MainApp.num_chlid_12_23 < Integer.parseInt(MainApp.listings.getHh14a())) {
                     bi.hh13cname.setText(null);
+                    bi.hh13age.setText(null);
                     startActivity(new Intent(this, ChildActivity.class));
                     //     startActivity(new Intent(this, SectionBActivity.class));
                 } else {
@@ -159,6 +160,7 @@ public class ChildActivity extends AppCompatActivity {
 
             if (MainApp.num_chlid_12_23 < Integer.parseInt(MainApp.listings.getHh14a())) {
                 bi.hh13cname.setText(null);
+                bi.hh13age.setText(null);
                 startActivity(new Intent(this, ChildActivity.class));
                 //     startActivity(new Intent(this, SectionBActivity.class));
             } else {
