@@ -78,6 +78,7 @@ public class Listings extends BaseObservable {
     private String hh14a = StringUtils.EMPTY;
     private String hhchildsno = StringUtils.EMPTY;
     private String hh13cname = StringUtils.EMPTY;
+    private String hh13age = StringUtils.EMPTY;
     private String hh15 = StringUtils.EMPTY;
 
     private String sA = StringUtils.EMPTY;
@@ -120,6 +121,17 @@ public class Listings extends BaseObservable {
     public void setUuid(String uuid) {
         this.uuid = uuid;
         notifyPropertyChanged(BR.uuid);
+    }
+
+
+    @Bindable
+    public String getHh13age() {
+        return hh13age;
+    }
+
+    public void setHh13age(String hh13age) {
+        this.hh13age = hh13age;
+        notifyPropertyChanged(BR.hh13age);
     }
 
 
@@ -673,8 +685,8 @@ public class Listings extends BaseObservable {
             this.hh14a = json.getString("hh14a");
             this.hhchildsno = json.getString("hhchildsno");
             this.hh13cname = json.getString("hh13cname");
+            this.hh13age = json.getString("hh13age");
             this.hh15 = json.getString("hh15");
-
 
         }
     }
@@ -730,6 +742,7 @@ public class Listings extends BaseObservable {
                 .put("hh14a", hh14a)
                 .put("hhchildsno", hhchildsno)
                 .put("hh13cname", hh13cname)
+                .put("hh13age", hh13age)
                 .put("hh15", hh15);
         return json.toString();
     }

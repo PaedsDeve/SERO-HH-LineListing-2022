@@ -155,6 +155,7 @@
     <string name="hh1402">نہیں</string>
     <string name="hh14a">اگر ہاں، تو 6 سے 23 مہینے کی عمر کے بچوں کی تعداد بتائیں</string>
     <string name="hh13cname">بچے کا نام</string>
+    <string name="hh13age"> بچے کی عمر مہینوں میں بتائیں</string>
 
     <string name="hh15"> کیا اس گھر میں مذید کوئی خاندان رہائش پزیر ہے </string>
 
@@ -179,6 +180,7 @@
     <string name='Q_hh14'>hh14</string>
     <string name='Q_hh14a'>hh14a</string>
     <string name='Q_hh13cname'>hh13cname</string>
+    <string name='Q_hh13age'>hh13age</string>
     <string name='Q_hh15'>hh15</string>
     <string name='Q_hh12'>hh12</string>
     <string name='Q_hh13'>hh13</string>
