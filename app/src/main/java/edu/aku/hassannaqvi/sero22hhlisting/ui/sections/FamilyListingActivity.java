@@ -100,6 +100,7 @@ public class FamilyListingActivity extends AppCompatActivity {
         listings.setHh14a("");
         listings.setHhchlidsno("");
         listings.setHh13cname("");
+        listings.setHh13age("");
         listings.setHh15("");
 
 
