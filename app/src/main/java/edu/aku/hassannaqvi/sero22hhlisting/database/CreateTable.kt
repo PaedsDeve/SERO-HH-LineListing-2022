@@ -14,7 +14,7 @@ object CreateTable {
             + ListingsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + ListingsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + ListingsTable.COLUMN_UID + " TEXT,"
-            + ListingsTable.COLUMN_UUID + " TEXT,"
+            //+ ListingsTable.COLUMN_UUID + " TEXT,"
             + ListingsTable.COLUMN_USERNAME + " TEXT,"
             + ListingsTable.COLUMN_CLUSTER + " TEXT,"
             + ListingsTable.COLUMN_SYSDATE + " TEXT,"

@@ -76,10 +76,10 @@ public class ChildActivity extends AppCompatActivity {
 
                 listings.setId(String.valueOf(rowId));
                 listings.setUid(listings.getDeviceId() + listings.getId());
-                listings.setUuid(listings.getDeviceId() + listings.getId() + listings.getHhchlidsno());
+                //listings.setUuid(listings.getDeviceId() + listings.getId() + listings.getHhchlidsno());
 
                 updCount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UID, listings.getUid());
-                updCount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UUID, listings.getUuid());
+                //updCount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UUID, listings.getUuid());
 
                 if (updCount > 0) {
                     return true;
@@ -106,9 +106,9 @@ public class ChildActivity extends AppCompatActivity {
             updcount = db.updateFormColumn(TableContracts.ListingsTable.COLUMN_SC, listings.sCtoString());
 
             listings.setUid(listings.getDeviceId() + listings.getId());
-            listings.setUuid(listings.getDeviceId() + listings.getId() + listings.getHhchlidsno());
+            //listings.setUuid(listings.getDeviceId() + listings.getId() + listings.getHhchlidsno());
 
-            updcount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UUID, listings.getUuid());
+            updcount = db.updateChildColumn(TableContracts.ListingsTable.COLUMN_UID, listings.getUid());
 
         } catch (JSONException e) {
 

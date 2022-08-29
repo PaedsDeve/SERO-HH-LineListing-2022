@@ -106,7 +106,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(TableContracts.ListingsTable.COLUMN_PROJECT_NAME, ls.getProjectName());
         values.put(TableContracts.ListingsTable.COLUMN_UID, ls.getUid());
-        values.put(TableContracts.ListingsTable.COLUMN_UUID, ls.getUuid());
+        //values.put(TableContracts.ListingsTable.COLUMN_UUID, ls.getUuid());
         values.put(TableContracts.ListingsTable.COLUMN_USERNAME, ls.getUserName());
         values.put(TableContracts.ListingsTable.COLUMN_CLUSTER, ls.getCluster());
         values.put(ListingsTable.COLUMN_SYSDATE, ls.getSysDate());
@@ -213,7 +213,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         values.put(TableContracts.ListingsTable.COLUMN_PROJECT_NAME, ls.getProjectName());
         values.put(TableContracts.ListingsTable.COLUMN_UID, ls.getUid());
-        values.put(TableContracts.ListingsTable.COLUMN_UUID, ls.getUuid());
+        //values.put(TableContracts.ListingsTable.COLUMN_UUID, ls.getUuid());
         values.put(TableContracts.ListingsTable.COLUMN_USERNAME, ls.getUserName());
         values.put(TableContracts.ListingsTable.COLUMN_CLUSTER, ls.getCluster());
         values.put(ListingsTable.COLUMN_SYSDATE, ls.getSysDate());

@@ -31,7 +31,7 @@ public class Listings extends BaseObservable {
     // APP VARIABLES
     private String id = StringUtils.EMPTY;
     private String uid = StringUtils.EMPTY;
-    private String uuid = StringUtils.EMPTY;
+    //private String uuid = StringUtils.EMPTY;
     private String cluster = StringUtils.EMPTY;
     private String enumCode = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
@@ -113,7 +113,7 @@ public class Listings extends BaseObservable {
     }
 
 
-    @Bindable
+    /*@Bindable
     public String getUuid() {
         return uuid;
     }
@@ -121,7 +121,7 @@ public class Listings extends BaseObservable {
     public void setUuid(String uuid) {
         this.uuid = uuid;
         notifyPropertyChanged(BR.uuid);
-    }
+    }*/
 
 
     @Bindable
@@ -617,7 +617,7 @@ public class Listings extends BaseObservable {
     public Listings Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_UID));
-        this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_UUID));
+        //this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_UUID));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_USERNAME));
         this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_CLUSTER));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(ListingsTable.COLUMN_SYSDATE));
@@ -754,7 +754,7 @@ public class Listings extends BaseObservable {
 
         json.put(ListingsTable.COLUMN_ID, this.id);
         json.put(ListingsTable.COLUMN_UID, this.uid);
-        json.put(ListingsTable.COLUMN_UUID, this.uuid);
+        //json.put(ListingsTable.COLUMN_UUID, this.uuid);
         json.put(ListingsTable.COLUMN_USERNAME, this.userName);
         json.put(ListingsTable.COLUMN_CLUSTER, this.cluster);
         json.put(ListingsTable.COLUMN_SYSDATE, this.sysDate);
