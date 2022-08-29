@@ -44,6 +44,7 @@ public class ChildActivity extends AppCompatActivity {
         st = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(new Date().getTime());
         db = MainApp.appInfo.dbHelper;
 
+
         MainApp.num_chlid_12_23++;
         bi.hhid.setText("SERO-" + MainApp.listings.getHh01() + "\n" + MainApp.selectedTab + "-" + String.format("%04d", MainApp.maxStructure) + "-" + String.format("%03d", MainApp.hhid));
         bi.childSno.setText("Child#: " + MainApp.num_chlid_12_23 + " of " + MainApp.listings.getHh14a());
