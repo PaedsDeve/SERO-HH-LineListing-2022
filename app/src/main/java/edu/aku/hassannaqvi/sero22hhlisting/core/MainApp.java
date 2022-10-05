@@ -68,7 +68,7 @@ public class MainApp extends Application {
 
     public static final String _APP_FOLDER = "../app/listing";
     public static final String _EMPTY_ = "";
-    public static final String _USER_URL = "resetpassword.php";
+    public static final String _USER_URL = "resetpasswordgcm.php";
     private static final String TAG = "MainApp";
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds

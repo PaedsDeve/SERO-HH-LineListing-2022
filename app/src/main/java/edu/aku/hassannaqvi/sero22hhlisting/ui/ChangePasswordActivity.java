@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.sero22hhlisting.ui;
 
+import static edu.aku.hassannaqvi.sero22hhlisting.core.UserAuth.checkPassword;
 import static edu.aku.hassannaqvi.sero22hhlisting.core.UserAuth.generatePassword;
 
 import android.os.Bundle;
@@ -52,6 +53,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
         EditText p;
         if (view.getId() == bi.showPassword1.getId()) {
             p = bi.password1;
+        } else if (view.getId() == bi.showPasswordOld.getId()) {
+            p = bi.passwordOld;
         } else {
             p = bi.password2;
         }
@@ -201,22 +204,44 @@ public class ChangePasswordActivity extends AppCompatActivity {
         // return Validator.emptyCheckingContainer(this, bi.GrpName);
 
         String hashedPasswordOld = "";
+        String PasswordOld = "";
         try {
             hashedPasswordOld = generatePassword(bi.passwordOld.getText().toString(), null);
+            //PasswordOld = bi.passwordOld.getText().toString();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (InvalidKeySpecException e) {
             e.printStackTrace();
         }
 
-        if (!MainApp.user.getPassword().equals(hashedPasswordOld)) {
+        /*if (!MainApp.user.getPassword().equals(hashedPasswordOld)) {
             bi.passwordOld.setError("Old password do not match.");
             Toast.makeText(this, "Old password do not match.", Toast.LENGTH_SHORT).show();
             return false;
         } else {
             bi.passwordOld.setError(null);
+        }*/
+
+
+        try {
+            if (!checkPassword(bi.passwordOld.getText().toString(), MainApp.user.getPassword())) {
+                bi.passwordOld.setError("Old password do not match.");
+                Toast.makeText(this, "Old password do not match.", Toast.LENGTH_SHORT).show();
+                return false;
+            } else {
+                bi.passwordOld.setError(null);
+
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "NoSuchAlgorithmException(UserAuth.checkPassword): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "InvalidKeySpecException(UserAuth.checkPassword): " + e.getMessage(), Toast.LENGTH_SHORT).show();
 
         }
+
 
         if (bi.password1.getText().toString().length() < 8) {
             bi.password1.setError("Password should be at least 8 characters long.");
@@ -300,6 +325,14 @@ public class ChangePasswordActivity extends AppCompatActivity {
             bi.password1.setError("Password must have atleast one number");
             isValid = false;
         }
+
+        // Check same username and password
+        if (password.matches(MainApp.user.getUserName())) {
+            System.out.println("Username and Password cannot be same");
+            bi.password1.setError("Username and Password cannot be same");
+            isValid = false;
+        }
+
         /*String specialChars = "(.*[@,#,$,%].*$)";
         if (!password.matches(specialChars ))
         {

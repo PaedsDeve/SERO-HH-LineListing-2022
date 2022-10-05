@@ -66,5 +66,4 @@ public class UserAuth {
         return salt;
     }
 
-
 }
