@@ -5,7 +5,7 @@
       <map>
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout-v17/sync_list_adapter.xml" value="0.1" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_change_password.xml" value="0.328125" />
-        <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_child.xml" value="0.6324626865671642" />
+        <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_child.xml" value="0.6146245059288538" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_family_listing.xml" value="0.45125" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_hh15.xml" value="0.55" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_listings_reporter.xml" value="0.55" />
@@ -21,5 +21,5 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>
