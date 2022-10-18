@@ -2,7 +2,6 @@ package edu.aku.hassannaqvi.sero22hhlisting.database;
 
 import static edu.aku.hassannaqvi.sero22hhlisting.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.sero22hhlisting.core.MainApp.PROJECT_NAME;
-import static edu.aku.hassannaqvi.sero22hhlisting.core.MainApp.listings;
 import static edu.aku.hassannaqvi.sero22hhlisting.core.UserAuth.checkPassword;
 import static edu.aku.hassannaqvi.sero22hhlisting.database.CreateTable.SQL_ALTER_LISTING_GPS_ACC;
 import static edu.aku.hassannaqvi.sero22hhlisting.database.CreateTable.SQL_ALTER_LISTING_GPS_DATE;
@@ -36,11 +35,11 @@ import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.sero22hhlisting.contracts.TableContracts;
+import edu.aku.hassannaqvi.sero22hhlisting.contracts.TableContracts.ChlidTable;
 import edu.aku.hassannaqvi.sero22hhlisting.contracts.TableContracts.ClusterTable;
 import edu.aku.hassannaqvi.sero22hhlisting.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.sero22hhlisting.contracts.TableContracts.ListingsTable;
 import edu.aku.hassannaqvi.sero22hhlisting.contracts.TableContracts.MwraTable;
-import edu.aku.hassannaqvi.sero22hhlisting.contracts.TableContracts.ChlidTable;
 import edu.aku.hassannaqvi.sero22hhlisting.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.sero22hhlisting.core.MainApp;
 import edu.aku.hassannaqvi.sero22hhlisting.models.Child;
@@ -749,7 +748,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs,                 // The values for the WHERE clause
                 groupBy,                   // don't group the rows
                 having,                    // don't filter by row groups
-                orderBy                    // The sort order
+                orderBy,                    // The sort order
+                "500"
         );
         while (c.moveToNext()) {
             /** WorkManager Upload
