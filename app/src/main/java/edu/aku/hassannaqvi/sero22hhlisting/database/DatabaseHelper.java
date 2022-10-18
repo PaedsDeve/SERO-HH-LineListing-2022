@@ -707,7 +707,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 groupBy,                   // don't group the rows
                 having,                    // don't filter by row groups
                 orderBy,                    // The sort order
-                "80"
+                "200"
         );
         while (c.moveToNext()) {
             /** WorkManager Upload
