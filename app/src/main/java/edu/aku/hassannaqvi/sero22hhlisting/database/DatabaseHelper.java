@@ -689,7 +689,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = null;
 
         String whereClause;
-        whereClause = TableContracts.ListingsTable.COLUMN_SYNCED + " is null and  ";
+        whereClause = TableContracts.ListingsTable.COLUMN_SYNCED + " is null ";
 
         String[] whereArgs = null;
 
@@ -706,7 +706,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs,                 // The values for the WHERE clause
                 groupBy,                   // don't group the rows
                 having,                    // don't filter by row groups
-                orderBy,                    // The sort order
+                orderBy,
                 "200"
         );
         while (c.moveToNext()) {
