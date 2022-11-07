@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "343041674558",
+    "project_id": "sero-hh-line-listing",
+    "storage_bucket": "sero-hh-line-listing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343041674558:android:c35da50d8667600d3db06f",
+        "android_client_info": {
+          "package_name": "edu.aku.hassannaqvi.sero22hhlisting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "343041674558-4u4rbt2hdo01remhtubhtas42nf9ai7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKg3WYhFqA5vNDpDSTvTwPyJd43TlE_SQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "343041674558-4u4rbt2hdo01remhtubhtas42nf9ai7k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
