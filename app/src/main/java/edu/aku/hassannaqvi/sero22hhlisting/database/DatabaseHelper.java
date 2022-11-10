@@ -705,22 +705,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs,                 // The values for the WHERE clause
                 groupBy,                   // don't group the rows
                 having,                    // don't filter by row groups
-                orderBy,
-                "200"
+                orderBy
         );
         while (c.moveToNext()) {
             /** WorkManager Upload
              /*Listings fc = new Listings();
              allFC.add(fc.Hydrate(c));*/
-            Log.d(TAG, "getUnsyncedForm: " + c.getCount());
+            Log.d(TAG, "getUnsyncedListing: " + c.getCount());
             Listings listings = new Listings();
             allForm.put(listings.Hydrate(c).toJSONObject());
         }
         if (c != null && !c.isClosed()) {
             c.close();
         }
-        Log.d(TAG, "getUnsyncedForm: " + allForm.toString().length());
-        Log.d(TAG, "getUnsyncedForm: " + allForm);
+        Log.d(TAG, "getUnsyncedListing: " + allForm.toString().length());
+        Log.d(TAG, "getUnsyncedListing: " + allForm);
         return allForm;
     }
 
@@ -755,15 +754,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             /** WorkManager Upload
              /*Mwra fc = new Mwra();
              allFC.add(fc.Hydrate(c));*/
-            Log.d(TAG, "getUnsyncedMwraCR: " + c.getCount());
+            Log.d(TAG, "getUnsyncedMwra: " + c.getCount());
             Mwra mwra = new Mwra();
             allMwra.put(mwra.Hydrate(c).toJSONObject());
         }
         if (c != null && !c.isClosed()) {
             c.close();
         }
-        Log.d(TAG, "getUnsyncedMwraCR: " + allMwra.toString().length());
-        Log.d(TAG, "getUnsyncedMwraCR: " + allMwra);
+        Log.d(TAG, "getUnsyncedMwra: " + allMwra.toString().length());
+        Log.d(TAG, "getUnsyncedMwra: " + allMwra);
         return allMwra;
     }
 
