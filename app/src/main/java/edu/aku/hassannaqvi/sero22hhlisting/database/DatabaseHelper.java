@@ -705,7 +705,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs,                 // The values for the WHERE clause
                 groupBy,                   // don't group the rows
                 having,                    // don't filter by row groups
-                orderBy
+                orderBy,
+                "500"
         );
         while (c.moveToNext()) {
             /** WorkManager Upload
