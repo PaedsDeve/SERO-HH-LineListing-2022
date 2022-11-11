@@ -1,23 +1,26 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <data>
 
         <import type="android.view.View" />
 
-             <variable
-                 name="listings"
-                 type="edu.aku.hassannaqvi.sero22hhlisting.models.Listings" />
+        <variable
+            name="listings"
+            type="edu.aku.hassannaqvi.sero22hhlisting.models.Listings" />
 
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.sero22hhlisting.ui.sections.SectionBActivity" />
     </data>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
 
         <!-- CUSTOM TOOLBAR -->
         <androidx.appcompat.widget.Toolbar
@@ -32,6 +35,7 @@
             app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
             app:title="Sructure Information"
             app:titleTextAppearance="@style/Toolbar.TitleText" />
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/fldGrpCVhh20"
@@ -58,16 +62,19 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fillViewport="true">
+
 
             <LinearLayout
                 android:id="@+id/GrpName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
 
                 <!-- hh07  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -189,10 +196,14 @@
                                 android:onClick="@{()->listings.setHh07(`9`) + hh09.clearCheck()}"
                                 android:text="@string/hh0719"
                                 android:textColor="@color/redDark" />
+
                         </RadioGroup>
+
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView><!-- hh07  Radio   -->
+                </androidx.cardview.widget.CardView>
+                <!-- hh07  Radio   -->
+
 
                 <!-- hh08  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -222,13 +233,13 @@
                                 android:layout_height="match_parent"
                                 android:text="@string/hh08" />
 
-                    </LinearLayout>
+                        </LinearLayout>
+
                         <RadioGroup
                             android:id="@+id/hh08"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/hh08a"
@@ -237,9 +248,7 @@
                                 android:layout_weight="1"
                                 android:checked="@{listings.hh08.equals(`1`)}"
                                 android:onClick="@{()->listings.setHh08(`1`)}"
-                                android:text="@string/hh08a"
-
-                                />
+                                android:text="@string/hh08a" />
 
                             <RadioButton
                                 android:id="@+id/hh08b"
@@ -248,15 +257,15 @@
                                 android:layout_weight="1"
                                 android:checked="@{listings.hh08.equals(`2`)}"
                                 android:onClick="@{()->listings.setHh08(`2`) + hh09.clearCheck()}"
-                                android:text="@string/hh08b"
-
-                                />
+                                android:text="@string/hh08b" />
 
                         </RadioGroup>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
                 <!-- hh05  Radio   -->
+
 
                 <!-- hh09  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -282,10 +291,10 @@
                                 android:text="@string/Q_hh09" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/hh09" />
+
                         </LinearLayout>
 
                         <RadioGroup
@@ -296,7 +305,7 @@
 
                             <RadioButton
                                 android:id="@+id/hh0901"
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:checked="@{listings.hh09.equals(`1`)}"
@@ -305,15 +314,19 @@
 
                             <RadioButton
                                 android:id="@+id/hh0902"
-                                android:layout_width="0dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:checked="@{listings.hh09.equals(`2`)}"
                                 android:onClick="@{()->listings.setHh09(`2`)}"
                                 android:text="@string/hh0802" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- hh10  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
@@ -339,24 +352,27 @@
                                 android:text="@string/Q_hh10" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/hh10" />
+
                         </LinearLayout>
 
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/hh10"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/hh10"
+                            android:gravity="center"
+                            android:hint="##"
                             android:inputType="number"
-                            android:maxLength="3"
+                            android:maxLength="2"
                             android:text="@={listings.hh10}"
-                            app:maxValue="100"
+                            app:maxValue="99"
                             app:minValue="2"
                             app:type="range" />
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
 
@@ -398,7 +414,14 @@
                 </LinearLayout>
                 <!--EndButton LinearLayout-->
 
+
             </LinearLayout>
+
+
         </ScrollView>
+
+
     </LinearLayout>
+
+
 </layout>

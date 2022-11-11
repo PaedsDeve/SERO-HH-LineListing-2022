@@ -109,9 +109,13 @@
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                                 android:inputType="textCapWords|textPersonName"
                                 android:text="@={listings.hh11}" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- hh12  Input   -->
                 <androidx.cardview.widget.CardView
@@ -145,6 +149,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:hint="##"
                                 android:inputType="number"
                                 android:maxLength="2"
@@ -153,9 +158,14 @@
                                 app:maxValue="99"
                                 app:minValue="1"
                                 app:type="range" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
+
                 <!-- hh13  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVhh13"
@@ -248,7 +258,8 @@
                             android:id="@+id/hh13a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/hh13a"
+                            android:gravity="center"
+                            android:hint="##"
                             android:inputType="number"
                             android:maxLength="2"
                             android:onTextChanged="@{()-> listings.setHh14(``) + hh14.clearCheck()}"
@@ -256,8 +267,11 @@
                             app:maxValue="99"
                             app:minValue="1"
                             app:type="range" />
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- hh14  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -355,7 +369,8 @@
                             android:id="@+id/hh14a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/hh14a"
+                            android:gravity="center"
+                            android:hint="##"
                             android:inputType="number"
                             android:maxLength="2"
                             android:text="@={listings.hh14a}"

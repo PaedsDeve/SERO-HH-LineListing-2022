@@ -56,7 +56,9 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
+
 
         <ScrollView
             android:layout_width="match_parent"
@@ -123,7 +125,9 @@
                                 android:text="@string/hh1402" />
 
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
 
@@ -151,7 +155,13 @@
                         android:textStyle="bold" />
 
                 </LinearLayout>
+
+
             </LinearLayout>
+
         </ScrollView>
+
     </LinearLayout>
+
+
 </layout>
