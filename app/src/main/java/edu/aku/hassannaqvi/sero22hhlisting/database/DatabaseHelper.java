@@ -706,21 +706,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 groupBy,                   // don't group the rows
                 having,                    // don't filter by row groups
                 orderBy,
-                "2"
+                "500"
         );
         while (c.moveToNext()) {
             /** WorkManager Upload
              /*Listings fc = new Listings();
              allFC.add(fc.Hydrate(c));*/
-            Log.d(TAG, "getUnsyncedForm: " + c.getCount());
+            Log.d(TAG, "getUnsyncedListing: " + c.getCount());
             Listings listings = new Listings();
             allForm.put(listings.Hydrate(c).toJSONObject());
         }
         if (c != null && !c.isClosed()) {
             c.close();
         }
-        Log.d(TAG, "getUnsyncedForm: " + allForm.toString().length());
-        Log.d(TAG, "getUnsyncedForm: " + allForm);
+        Log.d(TAG, "getUnsyncedListing: " + allForm.toString().length());
+        Log.d(TAG, "getUnsyncedListing: " + allForm);
         return allForm;
     }
 
