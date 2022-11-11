@@ -688,7 +688,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = null;
 
         String whereClause;
-        whereClause = TableContracts.ListingsTable.COLUMN_SYNCED + " is null ";
+        whereClause = TableContracts.ListingsTable.COLUMN_SYNCED + " = '' OR "
+                + TableContracts.ListingsTable.COLUMN_SYNCED + " is null ";
 
         String[] whereArgs = null;
 
