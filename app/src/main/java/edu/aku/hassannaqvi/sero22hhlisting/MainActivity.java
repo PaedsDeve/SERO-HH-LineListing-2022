@@ -4,6 +4,7 @@ import static edu.aku.hassannaqvi.sero22hhlisting.core.MainApp.sharedPref;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding bi;
     SharedPreferences sp;
+    private LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             bi.newApp.setVisibility(View.GONE);
 
         }
+//        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
     }
 
     public void sectionPress(View view) {
@@ -54,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.openChildForm:
                 //MainApp.cr = new Listings();
                 //    finish();
+//                if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                 startActivity(new Intent(this, SectionAActivity.class));
+//                } else Toast.makeText(this, "Please turn on Location", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.dbm:
                 startActivity(new Intent(this, AndroidManager.class));

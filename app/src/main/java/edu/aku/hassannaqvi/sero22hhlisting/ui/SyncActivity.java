@@ -76,6 +76,7 @@ public class SyncActivity extends AppCompatActivity {
     private long tStart;
     private String progress;
     private long startTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -169,9 +170,9 @@ public class SyncActivity extends AppCompatActivity {
                 }
 
                 MainApp.downloadData = new String[uploadData.size()];
-
                 setAdapter(uploadTables);
                 BeginUpload();
+
                 break;
             case R.id.btnSync:
 

@@ -754,15 +754,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             /** WorkManager Upload
              /*Mwra fc = new Mwra();
              allFC.add(fc.Hydrate(c));*/
-            Log.d(TAG, "getUnsyncedMwra: " + c.getCount());
+            Log.d(TAG, "getUnsyncedMwraCR: " + c.getCount());
             Mwra mwra = new Mwra();
             allMwra.put(mwra.Hydrate(c).toJSONObject());
         }
         if (c != null && !c.isClosed()) {
             c.close();
         }
-        Log.d(TAG, "getUnsyncedMwra: " + allMwra.toString().length());
-        Log.d(TAG, "getUnsyncedMwra: " + allMwra);
+        Log.d(TAG, "getUnsyncedMwraCR: " + allMwra.toString().length());
+        Log.d(TAG, "getUnsyncedMwraCR: " + allMwra);
         return allMwra;
     }
 
