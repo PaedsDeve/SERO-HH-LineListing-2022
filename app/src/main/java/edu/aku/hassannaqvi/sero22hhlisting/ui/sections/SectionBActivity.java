@@ -243,6 +243,12 @@ public class SectionBActivity extends AppCompatActivity {
         startActivity(new Intent(this, MainActivity.class));*/
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MainApp.lockScreen(this);
+    }
+
     public void setGPS() {
         SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
         try {
