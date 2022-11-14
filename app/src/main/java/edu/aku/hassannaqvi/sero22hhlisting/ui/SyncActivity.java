@@ -471,6 +471,7 @@ public class SyncActivity extends AppCompatActivity {
         });
     }
 
+
     private void BeginUpload() {
 
         Constraints constraints = new Constraints.Builder()
@@ -660,6 +661,7 @@ public class SyncActivity extends AppCompatActivity {
 
     }
 
+
     public void UploadPhotos(View view) {
         bi.dataLayout.setVisibility(View.GONE);
         bi.photoLayout.setVisibility(View.VISIBLE);
@@ -795,6 +797,7 @@ public class SyncActivity extends AppCompatActivity {
         }
     }
 
+
     private void upDatePhotoCount() {
         if (sdDir.exists()) {
             Log.d("DIR", "onCreate: " + sdDir.getName());
@@ -844,6 +847,7 @@ public class SyncActivity extends AppCompatActivity {
         }
     }
 
+
     private void sortBySize(File[] files) {
         Arrays.sort(files, new Comparator<File>() {
             @Override
@@ -868,6 +872,8 @@ public class SyncActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
 /*    private void downloadApp() throws MalformedURLException {
 

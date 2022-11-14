@@ -269,8 +269,8 @@ public class DataUpWorkerALL extends Worker {
 
             urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setSSLSocketFactory(buildSslSocketFactory(mContext));
-            urlConnection.setReadTimeout(300000 /* milliseconds */);
-            urlConnection.setConnectTimeout(350000 /* milliseconds */);
+            urlConnection.setReadTimeout(100000 /* milliseconds */);
+            urlConnection.setConnectTimeout(150000 /* milliseconds */);
             urlConnection.setRequestMethod("POST");
             urlConnection.setDoOutput(true);
             urlConnection.setDoInput(true);
