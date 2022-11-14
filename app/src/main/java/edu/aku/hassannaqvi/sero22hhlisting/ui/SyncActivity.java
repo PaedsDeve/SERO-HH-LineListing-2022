@@ -170,9 +170,9 @@ public class SyncActivity extends AppCompatActivity {
                 }
 
                 MainApp.downloadData = new String[uploadData.size()];
+
                 setAdapter(uploadTables);
                 BeginUpload();
-
                 break;
             case R.id.btnSync:
 
@@ -463,14 +463,13 @@ public class SyncActivity extends AppCompatActivity {
                     downloadTables.get(position).setstatus("Process Failed7");
                     downloadTables.get(position).setstatusID(1);
                     downloadTables.get(position).setInfo("Time: " + time + "/" + getTime() + "\t Size: " + size);
-                    downloadTables.get(position).setmessage(message.contains("No such file or directory") ? "Testing" : message);
+                    downloadTables.get(position).setmessage(message.contains("No such File or directory") ? "Testing" : message);
                     syncListAdapter.updatesyncList(downloadTables);
 
                 }
             }
         });
     }
-
 
     private void BeginUpload() {
 
@@ -661,7 +660,6 @@ public class SyncActivity extends AppCompatActivity {
 
     }
 
-
     public void UploadPhotos(View view) {
         bi.dataLayout.setVisibility(View.GONE);
         bi.photoLayout.setVisibility(View.VISIBLE);
@@ -797,7 +795,6 @@ public class SyncActivity extends AppCompatActivity {
         }
     }
 
-
     private void upDatePhotoCount() {
         if (sdDir.exists()) {
             Log.d("DIR", "onCreate: " + sdDir.getName());
@@ -847,7 +844,6 @@ public class SyncActivity extends AppCompatActivity {
         }
     }
 
-
     private void sortBySize(File[] files) {
         Arrays.sort(files, new Comparator<File>() {
             @Override
@@ -872,8 +868,6 @@ public class SyncActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 
 /*    private void downloadApp() throws MalformedURLException {
 

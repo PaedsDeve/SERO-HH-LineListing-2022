@@ -4,13 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Office Work/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_change_password.xml" value="0.1921875" />
-        <entry key="..\:/Android Office Work/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_family_listing.xml" value="0.5578125" />
-        <entry key="..\:/Android Office Work/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_hh15.xml" value="0.5578125" />
-        <entry key="..\:/Android Office Work/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_lock.xml" value="0.5578125" />
         <entry key="..\:/Android Office Work/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_main.xml" value="0.371875" />
-        <entry key="..\:/Android Office Work/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_mwra_listing.xml" value="0.51875" />
         <entry key="..\:/Android Office Work/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_section_a.xml" value="0.534375" />
         <entry key="..\:/Android Office Work/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_section_b.xml" value="0.5221374045801527" />
+        <entry key="..\:/OmarShoaib/Projects/SERO-HH-LineListing-2022/app/src/main/res/drawable/splash_screen.xml" value="0.2" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout-v17/sync_list_adapter.xml" value="0.1" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_change_password.xml" value="0.328125" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_child.xml" value="0.6324626865671642" />
@@ -25,9 +22,15 @@
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_sync.xml" value="0.55" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/household_row.xml" value="0.36666666666666664" />
         <entry key="..\:/SERO-HH-LineListing-2022/app/src/main/res/layout/loading.xml" value="0.328125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_child.xml" value="0.5375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_family_listing.xml" value="0.5375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_hh15.xml" value="0.5375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_listings_reporter.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_section_a.xml" value="0.5375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/SERO-HH-LineListing-2022/app/src/main/res/layout/activity_section_b.xml" value="0.5375" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="16" project-jdk-type="JavaSDK" />
 </project>
