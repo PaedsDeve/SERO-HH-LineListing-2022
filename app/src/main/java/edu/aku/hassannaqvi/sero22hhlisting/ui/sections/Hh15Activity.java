@@ -2,14 +2,14 @@ package edu.aku.hassannaqvi.sero22hhlisting.ui.sections;
 
 import static edu.aku.hassannaqvi.sero22hhlisting.core.MainApp.listings;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -91,6 +91,12 @@ public class Hh15Activity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Back Press Not Allowed", Toast.LENGTH_LONG).show();
       /*  finish();
         startActivity(new Intent(this, MainActivity.class));*/
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MainApp.lockScreen(this);
     }
 
 }
