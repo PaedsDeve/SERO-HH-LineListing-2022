@@ -463,7 +463,7 @@ public class SyncActivity extends AppCompatActivity {
                     downloadTables.get(position).setstatus("Process Failed7");
                     downloadTables.get(position).setstatusID(1);
                     downloadTables.get(position).setInfo("Time: " + time + "/" + getTime() + "\t Size: " + size);
-                    downloadTables.get(position).setmessage(message.contains("No such File or directory") ? "Testing" : message);
+                    downloadTables.get(position).setmessage(message.contains("No such file or directory") ? "Testing" : message);
                     syncListAdapter.updatesyncList(downloadTables);
 
                 }
