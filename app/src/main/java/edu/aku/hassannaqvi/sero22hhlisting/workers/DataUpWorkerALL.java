@@ -269,8 +269,8 @@ public class DataUpWorkerALL extends Worker {
 
             urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setSSLSocketFactory(buildSslSocketFactory(mContext));
-            urlConnection.setReadTimeout(10000000 /* milliseconds */);
-            urlConnection.setConnectTimeout(15000000 /* milliseconds */);
+            urlConnection.setReadTimeout(100000 /* milliseconds */);
+            urlConnection.setConnectTimeout(150000 /* milliseconds */);
             urlConnection.setRequestMethod("POST");
             urlConnection.setDoOutput(true);
             urlConnection.setDoInput(true);
@@ -391,7 +391,7 @@ public class DataUpWorkerALL extends Worker {
         }
         try {
             result = new StringBuilder(CipherSecure.decryptGCM(result.toString()));
-        } catch (NoSuchPaddingException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | InvalidAlgorithmParameterException | InvalidKeyException | UnsupportedEncodingException e) {
+        } catch (NoSuchPaddingException | IllegalArgumentException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | InvalidAlgorithmParameterException | InvalidKeyException | UnsupportedEncodingException e) {
             Log.d(TAG, "doWork (Encryption Error): " + e.getMessage());
             displayNotification(nTitle, "Encryption Error: " + e.getMessage());
             data = new Data.Builder()
