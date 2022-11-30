@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -271,6 +272,8 @@ public class MainApp extends Application {
         );
 
         initSecure();
+
+        toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
     }
 
     private void initSecure() {
