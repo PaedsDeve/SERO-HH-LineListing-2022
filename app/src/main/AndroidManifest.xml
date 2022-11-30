@@ -110,6 +110,10 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity
+            android:name=".ui.LockActivity"
+            android:exported="true" />
+
         <meta-data
             android:name="YEK_REVRES"
             android:value="2r5u8x/A!D(G+KbPeShVmYq3t6v9y8B!E)H@McQfTjWnZr4u7x!z%C*F-JaNdRgU" />
