@@ -225,4 +225,8 @@
     <string name="invalid_response" translatable="false"> Invalid Response </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send_db">Send DB</string>
+    <string name="file_not_found">File not found</string>
+    <string name="file_sent_successfully">File sent successfully</string>
+    <string name="pick_email_provider">Pick an Email provider</string>
 </resources>

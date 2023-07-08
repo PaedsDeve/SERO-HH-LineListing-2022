@@ -1,17 +1,24 @@
 package edu.aku.hassannaqvi.sero22hhlisting;
 
 import static edu.aku.hassannaqvi.sero22hhlisting.core.MainApp.sharedPref;
+import static edu.aku.hassannaqvi.sero22hhlisting.ui.LoginActivity.dbBackup;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.LocationManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.databinding.DataBindingUtil;
+
+import java.io.File;
 
 import edu.aku.hassannaqvi.sero22hhlisting.core.MainApp;
 import edu.aku.hassannaqvi.sero22hhlisting.database.AndroidManager;
@@ -87,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(MainActivity.this, ChangePasswordActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.sendDB:
+                sendEmail();
+                return true;
 
         }
 
@@ -101,5 +111,40 @@ public class MainActivity extends AppCompatActivity {
         action_database.setVisible(MainApp.admin);
         return true;
 
+    }
+
+    // Email database to specified email address as attachment
+    private void sendEmail() {
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"khalid.feroz@aku.edu"});
+        emailIntent.putExtra(Intent.EXTRA_CC, new String[]{"omar.shoaib@aku.edu", "hussain.siddiqui@aku.edu"});
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Sero22 HH Listing Database - For Issue Monitoring");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Sero22 HH Listing database upload from the device which has issues while uploading the data." +
+                "This is just for testing/checking purpose.");
+        File file = dbBackup(this);
+//        File file = copyFileToFilesDir(DATABASE_NAME);
+        if (file == null || !file.exists() || !file.canRead()) {
+            Toast.makeText(this, getString(R.string.file_not_found), Toast.LENGTH_SHORT).show();
+            return;
+        }
+//        Uri uri =  FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", file);
+
+//        Uri uri = Uri.fromFile(file);
+
+//        MimeTypeMap mime = MimeTypeMap.getSingleton();
+//        String ext = file.getName().substring(file.getName().lastIndexOf(".") + 1);
+//        String type = mime.getMimeTypeFromExtension(ext);
+        Uri uri;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            emailIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            uri = FileProvider.getUriForFile(this, "edu.aku.hassannaqvi.sero22hhlisting.fileProvider", file);
+        }else{
+            uri = Uri.fromFile(file);
+        }
+//        emailIntent.setDataAndType(uri, type);
+        emailIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        emailIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(Intent.createChooser(emailIntent, getString(R.string.pick_email_provider)));
     }
 }
