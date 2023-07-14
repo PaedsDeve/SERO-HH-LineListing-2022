@@ -148,13 +148,13 @@ public class DataUpWorkerALL extends Worker {
         return null;
     }*/
 
-/*    public static void longInfo(String str) {
+    public static void longInfo(String str) {
         if (str.length() > 4000) {
             Log.i(TAG, str.substring(0, 4000));
-            longInfo(str.substring(4000));
+//            longInfo(str.substring(4000));
         } else
             Log.i(TAG, str);
-    }*/
+    }
 
     /*
      * The method is doing nothing but only generating
@@ -269,8 +269,8 @@ public class DataUpWorkerALL extends Worker {
 
             urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setSSLSocketFactory(buildSslSocketFactory(mContext));
-            urlConnection.setReadTimeout(100000 /* milliseconds */);
-            urlConnection.setConnectTimeout(150000 /* milliseconds */);
+            urlConnection.setReadTimeout(1000000 /* milliseconds */);
+            urlConnection.setConnectTimeout(1500000 /* milliseconds */);
             urlConnection.setRequestMethod("POST");
             urlConnection.setDoOutput(true);
             urlConnection.setDoInput(true);
@@ -304,7 +304,7 @@ public class DataUpWorkerALL extends Worker {
 
                 Log.d(TAG, "Upload Begins Length: " + jsonParam.length());
                 Log.d(TAG, "Upload Begins: " + jsonParam);
-//                longInfo(String.valueOf(jsonParam));
+                longInfo(String.valueOf(jsonParam));
 
                 String cipheredRequest = CipherSecure.encryptGCM(jsonParam.toString());
                 requestLength = cipheredRequest.length();
@@ -312,7 +312,7 @@ public class DataUpWorkerALL extends Worker {
 
                 String writeEnc = CipherSecure.encryptGCM(jsonParam.toString());
 
-//                longInfo("Encrypted: " + writeEnc);
+                longInfo("Encrypted: " + writeEnc);
 
                 //     wr.writeBytes(jsonParam.toString());
 

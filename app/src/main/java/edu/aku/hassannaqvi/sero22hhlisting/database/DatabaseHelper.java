@@ -687,15 +687,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = null;
 
-        String whereClause;
-        whereClause = TableContracts.ListingsTable.COLUMN_SYNCED + " = '' OR "
+        String whereClause = TableContracts.ListingsTable.COLUMN_SYNCED + " = '' OR "
                 + TableContracts.ListingsTable.COLUMN_SYNCED + " is null ";
-
         String[] whereArgs = null;
-
         String groupBy = null;
         String having = null;
-
         String orderBy = TableContracts.ListingsTable.COLUMN_ID + " ASC";
 
         JSONArray allForm = new JSONArray();
@@ -707,7 +703,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 groupBy,                   // don't group the rows
                 having,                    // don't filter by row groups
                 orderBy,
-                "50"
+                "25"
         );
         while (c.moveToNext()) {
             /** WorkManager Upload

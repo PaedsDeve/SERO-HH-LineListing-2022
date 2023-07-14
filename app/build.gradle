@@ -167,4 +167,8 @@ dependencies {
     // for Debug Database
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 
+    // For JSON conversion
+    implementation 'com.google.code.gson:gson:2.10'
+
+
 }

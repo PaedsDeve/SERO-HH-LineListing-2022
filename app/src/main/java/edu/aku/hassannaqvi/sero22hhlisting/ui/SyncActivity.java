@@ -595,6 +595,21 @@ public class SyncActivity extends AppCompatActivity {
                                         uploadTables.get(position).setInfo("Time: " + time + "/" + getTime() + "\t Size: " + size);
                                         syncListAdapter.updatesyncList(uploadTables);
                                     }
+
+                                    if (tableName.equals(TableContracts.ListingsTable.TABLE_NAME)) {
+                                        try {
+                                            JSONArray jArray = db.getUnsyncedListing();
+                                            if (jArray != null && jArray.length() > 0) {
+                                                MainApp.uploadData.set(0, null);
+                                                bi.btnUpload.callOnClick();
+                                            }
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                            Log.d(TAG, "ProcessStart: JSONException(Forms): " + e.getMessage());
+                                            Toast.makeText(this, "JSONException(Forms): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+
                                 } else {
                                     uploadTables.get(position).setmessage("Method not found: updateSynced" + tableName);
                                     uploadTables.get(position).setstatus("Process Failed5");

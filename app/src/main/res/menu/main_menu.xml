@@ -28,7 +28,7 @@
                 android:title="@string/send_db"
                 android:titleCondensed="Email database"
                 app:showAsAction="collapseActionView"
-                android:visible="true"/>
+                android:visible="false"/>
 
             <!--  <item
                   android:id="@+id/action_forms"
