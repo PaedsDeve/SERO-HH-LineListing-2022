@@ -165,7 +165,7 @@ dependencies {
     implementation 'com.scottyab:rootbeer-lib:0.1.0'
 
     // for Debug Database
-    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+    implementation 'com.github.amitshekhariitbhu.Android-Debug-Database:debug-db:v1.0.6'
 
     // For JSON conversion
     implementation 'com.google.code.gson:gson:2.10'
